@@ -43,10 +43,27 @@ public class characterMove : MonoBehaviour
             {
                 rb.AddForce(transform.right * 10f);
             }
-            if (Input.GetKey(KeyCode.Space) && !GetComponentInChildren<trigger>() = true)
+        }
+        Collider col = GetComponentInChildren<Collider>();
+        if (Input.GetKey(KeyCode.Space) && col != null && col.isTrigger == true)
+        {
+            // Only jump if there is something in the trigger
+            Collider[] hits = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, ~0, QueryTriggerInteraction.Ignore);
+            bool hasOtherCollider = false;
+            foreach (var hit in hits)
+            {
+                if (hit != col && hit.attachedRigidbody != rb)
+                {
+                    hasOtherCollider = true;
+                    break;
+                }
+            }
+
+            if (hasOtherCollider && rb != null)
             {
                 rb.AddForce(Vector3.up * 1f, ForceMode.Impulse);
             }
         }
+        rb.AddForce(Vector3.up * 1f, ForceMode.Impulse);
     }
 }
