@@ -4584,9 +4584,9 @@ GameObject:
   - component: {fileID: 1595643792}
   - component: {fileID: 1595643791}
   - component: {fileID: 1595643790}
-  - component: {fileID: 1595643795}
   - component: {fileID: 1595643796}
   - component: {fileID: 1595643797}
+  - component: {fileID: 1595643798}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -4714,19 +4714,6 @@ Transform:
   - {fileID: 236631612}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1595643795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595643789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb6277f6abe2541d4a8f42bb74083705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxspeed: 10
 --- !u!114 &1595643796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4739,7 +4726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 783f77ab1c7a74a3b99f83759e48ac37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 150
+  sensitivity: 5
 --- !u!114 &1595643797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4753,6 +4740,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 7
+--- !u!114 &1595643798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595643789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97bfc3937ba94875a1b4c2ce44952f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  acceleration: 40
+  deceleration: 200
 --- !u!43 &1814573312
 Mesh:
   m_ObjectHideFlags: 0
