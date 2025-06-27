@@ -7,24 +7,24 @@ public class moveAdvanced : MonoBehaviour
     public float deceleration = 5f; // Deceleration force applied when not moving
     private float slideSpeed = 0f;
     private bool sliding = false; // Track sliding state
+    private float sideSpeed = 0f;
     private Camera cam; // Reference to the camera component
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Rigidbody rb; // Reference to the Rigidbody component
+
     void Start()
     {
         cam = GetComponentInChildren<Camera>();
+        rb = GetComponent<Rigidbody>();
     }
     // Stop sliding when the key is released
 
     // Update is called once per frame
     void Update()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
         if (rb == null) return;
+
         Vector3 currentVelocity = rb.linearVelocity;
-        float sideSpeed = Vector3.Dot(currentVelocity, transform.right);
         float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
-
-
         // Start sliding when key is pressed and speed is high enough
         if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -44,62 +44,70 @@ public class moveAdvanced : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        if (forwardSpeed < slideSpeed)
+        if (sliding && forwardSpeed < slideSpeed)
         {
             rb.AddForce(transform.forward * acceleration * Time.deltaTime, ForceMode.VelocityChange);
         }
         if (!(Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl)))
         {
-
-
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            if (Input.GetKey(KeyCode.W) && (forwardSpeed < maxSpeed))
             {
-                transform.localScale = new Vector3(1f, 1f, 1f);
-                if (Input.GetKey(KeyCode.W))
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
-                    if (forwardSpeed < maxSpeed)
-                    {
-                        rb.AddForce(transform.forward * acceleration);
-                    }
-                }
-                else if (Input.GetKey(KeyCode.S))
-                {
-                    if (forwardSpeed > -maxSpeed)
-                    {
-                        rb.AddForce(-transform.forward * acceleration);
-                    }
+                    rb.AddForce(transform.forward * acceleration * Time.deltaTime / 2);
                 }
                 else
                 {
-                    // Decelerate when not moving forward or backward
-                    rb.AddForce(-transform.forward * forwardSpeed);
+                    rb.AddForce(transform.forward * acceleration * Time.deltaTime);
                 }
             }
-        }
-
-        // Handle sideways movement
-        if (Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl))
-        {
-        }
-        else
-        {
-            if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.S) && (forwardSpeed > -maxSpeed))
             {
-                if (sideSpeed > -maxSpeed)
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
-                    rb.AddForce(-transform.right * acceleration);
+                    rb.AddForce(-transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
                 }
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                if (sideSpeed < maxSpeed)
+                else
                 {
-                    rb.AddForce(transform.right * acceleration);
+                    rb.AddForce(-transform.forward * acceleration * Time.deltaTime, ForceMode.VelocityChange);
                 }
             }
             else
             {
-                // Decelerate when not moving sideways
-                rb.AddForce(-transform.right * sideSpeed);
+                // Decelerate when not moving forward or backward
+                rb.AddForce(-transform.forward * forwardSpeed);
+            }
+
+            // Handle sideways movement
+            if (Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl))
+            {
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.A) && sideSpeed > -maxSpeed)
+                {
+                    if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+                    {
+                        rb.AddForce(-transform.right * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    }
+                    else
+                    {
+                        rb.AddForce(-transform.right * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+                    }
+                }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    if (sideSpeed < maxSpeed)
+                    {
+                        rb.AddForce(transform.right * acceleration);
+                    }
+                }
+                else
+                {
+                    // Decelerate when not moving sideways
+                    rb.AddForce(-transform.right * sideSpeed);
+                }
             }
         }
     }
