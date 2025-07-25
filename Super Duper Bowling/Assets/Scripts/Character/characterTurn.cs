@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class characterTurn : MonoBehaviour
+public class CharacterTurn : MonoBehaviour
 {
     private Camera cam; // Reference to the camera component
     public Vector2 sensitivity; // Sensitivity for mouse movement
@@ -8,6 +8,9 @@ public class characterTurn : MonoBehaviour
     private float slideLock = 0f; // Variable to store the slide lock value
     private bool sliding = false; // Track sliding state
     private float camAngle = 0;
+    private bool isPaused = false;
+
+    // Removed OnEnable, OnDisable, PauseScript, and ResumeScript methods as GameManager is not defined
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +23,8 @@ public class characterTurn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Removed isPaused check since pause logic is not implemented
+
         float mouseY = Input.GetAxis("Mouse Y");
         if (cam != null)
         {
@@ -29,7 +34,7 @@ public class characterTurn : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl))
         {
             sliding = true;
-            float slideLock = Input.GetAxis("Mouse X");
+            slideLock = Input.GetAxis("Mouse X"); // Fixed: removed 'float' to use the class field
         }
         if (Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.LeftControl))
         {
@@ -45,9 +50,6 @@ public class characterTurn : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         transform.Rotate(Vector3.up * mouseX * sensitivity.x);
 
-
-
         Vector3 currentRotation = transform.localEulerAngles;
     }
 }
-
