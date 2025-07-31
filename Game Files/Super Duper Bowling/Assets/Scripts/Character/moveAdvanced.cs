@@ -116,9 +116,9 @@ public class moveAdvanced : MonoBehaviour
                 }
                 else
                 {
-                    if (IsGrounded())
+                    if (IsGrounded() && Mathf.Abs(sideSpeed) > 0.01f)
                     {
-                        rb.AddForce(-transform.right * sideSpeed * deceleration * Time.deltaTime, ForceMode.VelocityChange);
+                        rb.AddForce(-transform.right * (sideSpeed / Mathf.Abs(sideSpeed)) * deceleration * Time.deltaTime, ForceMode.VelocityChange);
                     }
                 }
             }
