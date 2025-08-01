@@ -45,16 +45,16 @@ public class CharacterTurn : MonoBehaviour
             camAngle += mouseY * sensitivity.y * Time.deltaTime;
             cam.transform.localRotation = Quaternion.Euler(Mathf.Clamp(camAngle, -75, 75), cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
         }
-        if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            sliding = true;
-            slideLock = Input.GetAxis("Mouse X"); // Fixed: removed 'float' to use the class field
-        }
-        if (Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            sliding = false;
-            slideLock = 0f;
-        }
+        //if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl))
+        //{
+        //   sliding = true;
+        // slideLock = Input.GetAxis("Mouse X"); // Fixed: removed 'float' to use the class field
+        //}
+        //if (Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.LeftControl))
+        //{
+        //    sliding = false;
+        //  slideLock = 0f;
+        //}
         if (sliding)
         {
             // If sliding, lock the camera's rotation to its current state
