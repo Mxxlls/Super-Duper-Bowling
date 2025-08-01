@@ -59,9 +59,12 @@ public class moveAdvanced : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
             if (Input.GetKey(KeyCode.W) && (forwardSpeed < maxSpeed))
             {
-                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && forwardSpeed < maxSpeed / 2)
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
-                    rb.AddForce(transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    if (forwardSpeed < maxSpeed / 2)
+                    {
+                        rb.AddForce(transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    }
                 }
                 else
                 {
@@ -72,7 +75,10 @@ public class moveAdvanced : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
-                    rb.AddForce(-transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    if (forwardSpeed > -maxSpeed / 2)
+                    {
+                        rb.AddForce(-transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    }
                 }
                 else
                 {
@@ -95,7 +101,10 @@ public class moveAdvanced : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
                     {
-                        rb.AddForce(-transform.right * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                        if (sideSpeed > -maxSpeed / 2)
+                        {
+                            rb.AddForce(-transform.right * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                        }
                     }
                     else
                     {

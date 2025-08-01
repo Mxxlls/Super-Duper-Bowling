@@ -25,17 +25,19 @@ public class CharacterTurn : MonoBehaviour
     void Update()
     {
         // Removed isPaused check since pause logic is not implemented
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused = true)
-            {
-                GameIsPaused = false;
-            }
-            else
-            {
-                GameIsPaused = true;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (GameIsPaused = true)
+        //   {
+        //       GameIsPaused = false;
+        //       Debug.Log("Game Resumed");
+        //   }
+        //  else
+        //   {
+        //        GameIsPaused = true;
+        //      Debug.Log("Game Paused");
+        // }
+        // }
 
         float mouseY = Input.GetAxis("Mouse Y");
         if (cam != null && GameIsPaused == false)
@@ -59,9 +61,15 @@ public class CharacterTurn : MonoBehaviour
             //cam.transform.localRotation = Quaternion.Euler(Mathf.Clamp(cam.transform.localEulerAngles.x, -50, 50), cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
             return; // Skip further rotation logic while sliding
         }
-        float mouseX = Input.GetAxis("Mouse X");
-        transform.Rotate(Vector3.up * mouseX * sensitivity.x);
+        if (GameIsPaused == false)  // Check if the game is not paused
+        {
+            // If the game is paused, do not allow camera rotation
 
-        Vector3 currentRotation = transform.localEulerAngles;
+
+            float mouseX = Input.GetAxis("Mouse X");
+            transform.Rotate(Vector3.up * mouseX * sensitivity.x);
+
+            Vector3 currentRotation = transform.localEulerAngles;
+        }
     }
 }
