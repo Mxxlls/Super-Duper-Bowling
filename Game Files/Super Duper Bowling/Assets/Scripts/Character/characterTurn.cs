@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class CharacterTurn : MonoBehaviour
 {
     private Camera cam; // Reference to the camera component
@@ -9,6 +9,7 @@ public class CharacterTurn : MonoBehaviour
     private bool sliding = false; // Track sliding state
     private float camAngle = 0;
     private bool isPaused = false;
+    private bool GameIsPaused = false; // Track game pause state
 
     // Removed OnEnable, OnDisable, PauseScript, and ResumeScript methods as GameManager is not defined
 
@@ -24,9 +25,20 @@ public class CharacterTurn : MonoBehaviour
     void Update()
     {
         // Removed isPaused check since pause logic is not implemented
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused = true)
+            {
+                GameIsPaused = false;
+            }
+            else
+            {
+                GameIsPaused = true;
+            }
+        }
 
         float mouseY = Input.GetAxis("Mouse Y");
-        if (cam != null)
+        if (cam != null && GameIsPaused == false)
         {
             camAngle += mouseY * sensitivity.y * Time.deltaTime;
             cam.transform.localRotation = Quaternion.Euler(Mathf.Clamp(camAngle, -75, 75), cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class moveAdvanced : MonoBehaviour
 {
     public float maxSpeed = 10f; // Maximum speed for the character
@@ -60,7 +59,7 @@ public class moveAdvanced : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
             if (Input.GetKey(KeyCode.W) && (forwardSpeed < maxSpeed))
             {
-                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) && forwardSpeed < maxSpeed / 2)
                 {
                     rb.AddForce(transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
                 }
