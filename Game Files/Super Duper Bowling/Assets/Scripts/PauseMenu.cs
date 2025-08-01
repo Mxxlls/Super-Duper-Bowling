@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem; // Add this if using the new Input System
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-
     public GameObject pauseMenuUI;
-
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +28,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
     }
     void Pause()
     {
