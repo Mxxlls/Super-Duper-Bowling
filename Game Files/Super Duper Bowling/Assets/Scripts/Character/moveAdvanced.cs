@@ -50,9 +50,10 @@ public class moveAdvanced : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        if (sliding && forwardSpeed < slideSpeed)
+        if (sliding && (forwardSpeed < slideSpeed))
         {
             rb.AddForce(transform.forward * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+            slideSpeed -= 1 * Time.deltaTime; // Gradually reduce slide speed
         }
         if (!(Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl)))
         {
@@ -122,14 +123,17 @@ public class moveAdvanced : MonoBehaviour
                         rb.AddForce(transform.right * acceleration * Time.deltaTime, ForceMode.VelocityChange);
                     }
                 }
-                else
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            { }
+            else
+            {
+                if (IsGrounded() && Mathf.Abs(sideSpeed) > 0.01f)
                 {
-                    if (IsGrounded() && Mathf.Abs(sideSpeed) > 0.01f)
-                    {
-                        rb.AddForce(-transform.right * (sideSpeed * deceleration * Time.deltaTime));
-                    }
+                    rb.AddForce(-transform.right * (sideSpeed * deceleration * Time.deltaTime));
                 }
             }
+
         }
     }
 }

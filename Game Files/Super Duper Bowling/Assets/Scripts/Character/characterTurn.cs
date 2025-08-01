@@ -25,19 +25,19 @@ public class CharacterTurn : MonoBehaviour
     void Update()
     {
         // Removed isPaused check since pause logic is not implemented
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    if (GameIsPaused = true)
-        //   {
-        //       GameIsPaused = false;
-        //       Debug.Log("Game Resumed");
-        //   }
-        //  else
-        //   {
-        //        GameIsPaused = true;
-        //      Debug.Log("Game Paused");
-        // }
-        // }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused == true)
+            {
+                bool GameIsPaused = false;
+                Debug.Log("Game Resumed");
+            }
+            else
+            {
+                bool GameIsPaused = true;
+                Debug.Log("Game Paused");
+            }
+        }
 
         float mouseY = Input.GetAxis("Mouse Y");
         if (cam != null && GameIsPaused == false)
