@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class moveAdvanced : MonoBehaviour
 {
     public float maxSpeed = 10f; // Maximum speed for the character
@@ -8,9 +7,11 @@ public class moveAdvanced : MonoBehaviour
     private float slideSpeed = 0f;
     private bool sliding = false; // Track sliding state
     private float sideSpeed = 0f;
+    private int grounded = 0; // Counter for grounded state
     private Camera cam; // Reference to the camera component
     private Rigidbody rb; // Reference to the Rigidbody component
     public float slideBoost = 5f; // Additional speed boost when sliding
+    public float slideAcceleration = 20f; // Acceleration force applied when sliding
 
     void Start()
     {
@@ -24,6 +25,14 @@ public class moveAdvanced : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
     // Update is called once per frame
+    void OnTriggerEnter(Collider other)
+    {
+        grounded = grounded + 1;
+    }
+    void OnTriggerExit(Collider other)
+    {
+        grounded = grounded - 1;
+    }
     void Update()
     {
         if (rb == null) return;
@@ -39,8 +48,8 @@ public class moveAdvanced : MonoBehaviour
             slideSpeed = Mathf.Max(forwardSpeed, sideSpeed) + slideBoost;
             sliding = true;
             // Clamp the camera's rotation to its current rotation while sliding
-            Vector3 euler = cam.transform.localEulerAngles;
-            cam.transform.localRotation = Quaternion.Euler(0f, euler.y, euler.z);
+            //Vector3 euler = cam.transform.localEulerAngles;
+            //cam.transform.localRotation = Quaternion.Euler(0f, euler.y, euler.z);
         }
 
         // Stop sliding when key is released
@@ -51,9 +60,11 @@ public class moveAdvanced : MonoBehaviour
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
-        if (sliding && forwardSpeed < slideSpeed)
+        if (sliding && (forwardSpeed < slideSpeed))
         {
-            rb.AddForce(transform.forward * acceleration * Time.deltaTime, ForceMode.VelocityChange);
+            rb.AddForce(transform.forward * slideAcceleration * Time.deltaTime, ForceMode.VelocityChange);
+            slideSpeed -= 1 * Time.deltaTime; // Gradually reduce slide speed
+            rb.AddForce(-transform.right * (sideSpeed * deceleration * Time.deltaTime));
         }
         if (!(Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl)))
         {
@@ -62,7 +73,10 @@ public class moveAdvanced : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
-                    rb.AddForce(transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    if (forwardSpeed < maxSpeed / 2)
+                    {
+                        rb.AddForce(transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    }
                 }
                 else
                 {
@@ -73,17 +87,24 @@ public class moveAdvanced : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
-                    rb.AddForce(-transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    if (forwardSpeed > -maxSpeed / 2)
+                    {
+                        rb.AddForce(-transform.forward * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                    }
                 }
                 else
                 {
                     rb.AddForce(-transform.forward * acceleration * Time.deltaTime, ForceMode.VelocityChange);
                 }
             }
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            { }
             else
             {
-                // Decelerate when not moving forward or backward
-                rb.AddForce(-transform.forward * forwardSpeed);
+                if (grounded > 0 && Mathf.Abs(forwardSpeed) > 0.01f)
+                {
+                    rb.AddForce(-transform.forward * (forwardSpeed * deceleration * Time.deltaTime));
+                }
             }
 
             // Handle sideways movement
@@ -96,7 +117,10 @@ public class moveAdvanced : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
                     {
-                        rb.AddForce(-transform.right * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                        if (sideSpeed > -maxSpeed / 2)
+                        {
+                            rb.AddForce(-transform.right * acceleration * Time.deltaTime / 2, ForceMode.VelocityChange);
+                        }
                     }
                     else
                     {
@@ -114,14 +138,17 @@ public class moveAdvanced : MonoBehaviour
                         rb.AddForce(transform.right * acceleration * Time.deltaTime, ForceMode.VelocityChange);
                     }
                 }
-                else
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            { }
+            else
+            {
+                if (grounded > 0 && Mathf.Abs(sideSpeed) > 0.01f)
                 {
-                    if (IsGrounded() && Mathf.Abs(sideSpeed) > 0.01f)
-                    {
-                        rb.AddForce(-transform.right * (sideSpeed * deceleration * Time.deltaTime));
-                    }
+                    rb.AddForce(-transform.right * (sideSpeed * deceleration * Time.deltaTime));
                 }
             }
+
         }
     }
 }
