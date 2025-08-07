@@ -9,7 +9,6 @@ public class CharacterTurn : MonoBehaviour
     private bool sliding = false; // Track sliding state
     private float camAngle = 0;
     private bool isPaused = false;
-    private bool GameIsPaused = false; // Track game pause state
 
     // Removed OnEnable, OnDisable, PauseScript, and ResumeScript methods as GameManager is not defined
 
@@ -25,22 +24,12 @@ public class CharacterTurn : MonoBehaviour
     void Update()
     {
         // Removed isPaused check since pause logic is not implemented
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused == true)
-            {
-                bool GameIsPaused = false;
-                Debug.Log("Game Resumed");
-            }
-            else
-            {
-                bool GameIsPaused = true;
-                Debug.Log("Game Paused");
-            }
-        }
+
+        // Only allow camera movement if the game is not paused
+        if (PauseMenu.GameIsPaused) return;
 
         float mouseY = Input.GetAxis("Mouse Y");
-        if (cam != null && GameIsPaused == false)
+        if (cam != null)
         {
             camAngle += mouseY * sensitivity.y * Time.deltaTime;
             cam.transform.localRotation = Quaternion.Euler(Mathf.Clamp(camAngle, -75, 75), cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
@@ -61,15 +50,10 @@ public class CharacterTurn : MonoBehaviour
             //cam.transform.localRotation = Quaternion.Euler(Mathf.Clamp(cam.transform.localEulerAngles.x, -50, 50), cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
             return; // Skip further rotation logic while sliding
         }
-        if (GameIsPaused == false)  // Check if the game is not paused
-        {
-            // If the game is paused, do not allow camera rotation
+        // Only allow camera rotation if the game is not paused
+        float mouseX = Input.GetAxis("Mouse X");
+        transform.Rotate(Vector3.up * mouseX * sensitivity.x);
 
-
-            float mouseX = Input.GetAxis("Mouse X");
-            transform.Rotate(Vector3.up * mouseX * sensitivity.x);
-
-            Vector3 currentRotation = transform.localEulerAngles;
-        }
+        Vector3 currentRotation = transform.localEulerAngles;
     }
 }
