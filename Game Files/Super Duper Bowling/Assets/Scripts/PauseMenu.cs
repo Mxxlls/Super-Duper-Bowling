@@ -6,6 +6,13 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    void Start()
+    {
+        Time.timeScale = 1f; // Ensure the game starts unpaused
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        GameIsPaused = false;
+    }
     // Update is called once per frame
     void Update()
     {
