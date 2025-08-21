@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 4446dfbbb38e24144992e9aa7c67df2c
-  - enabled: 0
-    path: Assets/Scenes/Level One.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
     guid: f3810412a437e8d48b6f3f4cff0ebfb6
   - enabled: 1
     path: Assets/Scenes/Brodie's Testing Scene.unity
