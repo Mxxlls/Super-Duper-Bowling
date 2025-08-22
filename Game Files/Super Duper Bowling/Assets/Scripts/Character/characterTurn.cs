@@ -15,17 +15,18 @@ public class CharacterTurn : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Remove or comment out these lines:
+        // Cursor.lockState = CursorLockMode.None;
+        // Cursor.visible = true;
         cam = GetComponentInChildren<Camera>();
-
     }
-
-    // Update is called once per frame
+        // Update is called once per frame
     void Update()
     {
+
         // Only allow camera movement if the game is not paused
         if (PauseMenu.GameIsPaused) return;
+        if (StartLevelMenu.GameIsPaused) return;
 
         float mouseY = Input.GetAxis("Mouse Y");
         if (cam != null)
