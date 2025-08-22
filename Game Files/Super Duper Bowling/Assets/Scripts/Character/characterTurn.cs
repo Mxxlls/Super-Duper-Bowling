@@ -18,13 +18,12 @@ public class CharacterTurn : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         cam = GetComponentInChildren<Camera>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Removed isPaused check since pause logic is not implemented
-
         // Only allow camera movement if the game is not paused
         if (PauseMenu.GameIsPaused) return;
 
