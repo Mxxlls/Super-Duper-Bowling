@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 2011074700}
+  StartLevelMenuUI: {fileID: 0}
 --- !u!114 &272787720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartLevelMenuUI: {fileID: 1836976707}
+  pauseMenuScript: {fileID: 0}
 --- !u!1 &309558278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3972,7 +3974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258.37683, y: -72.91374}
+  m_AnchoredPosition: {x: -258.37683, y: -77.04213}
   m_SizeDelta: {x: 79.8269, y: 50.3146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1655487187
@@ -4126,7 +4128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tutorial
+  m_text: Initiation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -5,8 +5,8 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        // Change "Tutorial" to "Level Select" when we have a completed level select menu
-        SceneManager.LoadScene("Tutorial");
+        // Change "Tutorial" to level name when we have a completed level select menu
+        SceneManager.LoadScene("Level 1");
     }
     public void QuitGame()
     {
