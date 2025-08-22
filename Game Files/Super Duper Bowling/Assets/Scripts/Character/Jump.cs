@@ -34,7 +34,7 @@ public class Jump : MonoBehaviour
             // Adjust jump force based on current speed
             // Apply the jump force
             {
-                rb.AddForce(Vector3.up * jumpForce * Time.deltaTime * 2, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpForce * Time.deltaTime, ForceMode.Impulse);
             }
         }
     }
