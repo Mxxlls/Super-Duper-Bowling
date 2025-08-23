@@ -63,8 +63,12 @@ public class moveAdvanced : MonoBehaviour
         if (sliding && (forwardSpeed < slideSpeed))
         {
             rb.AddForce(transform.forward * slideAcceleration * Time.deltaTime, ForceMode.VelocityChange);
-            slideSpeed -= 1 * Time.deltaTime; // Gradually reduce slide speed
+            slideSpeed -= 5 * Time.deltaTime; // Gradually reduce slide speed
             rb.AddForce(-transform.right * (sideSpeed * deceleration * Time.deltaTime));
+        }
+        else
+        {
+            slideSpeed -= 5 * Time.deltaTime;
         }
         if (!(Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl)))
         {

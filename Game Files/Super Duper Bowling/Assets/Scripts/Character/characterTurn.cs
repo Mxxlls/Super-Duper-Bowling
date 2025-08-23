@@ -20,7 +20,7 @@ public class CharacterTurn : MonoBehaviour
         // Cursor.visible = true;
         cam = GetComponentInChildren<Camera>();
     }
-        // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
 
@@ -32,7 +32,9 @@ public class CharacterTurn : MonoBehaviour
         if (cam != null)
         {
             camAngle += mouseY * sensitivity.y * Time.deltaTime;
-            cam.transform.localRotation = Quaternion.Euler(Mathf.Clamp(camAngle, -75, 75), cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
+            camAngle = Mathf.Clamp(camAngle, -75, 75);
+            cam.transform.localRotation = Quaternion.Euler(camAngle, cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
+            // Ensure camAngle is clamped
         }
         //if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl))
         //{
