@@ -33,7 +33,7 @@ public class CharacterTurn : MonoBehaviour
         {
             camAngle += mouseY * sensitivity.y * Time.deltaTime;
             camAngle = Mathf.Clamp(camAngle, -75, 75);
-            cam.transform.localRotation = Quaternion.Euler(camAngle, cam.transform.localEulerAngles.y, cam.transform.localEulerAngles.z);
+            cam.transform.localRotation = Quaternion.Euler(camAngle, 0f, 0f);
             // Ensure camAngle is clamped
         }
         //if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl))

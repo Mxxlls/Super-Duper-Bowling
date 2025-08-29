@@ -51,12 +51,24 @@ public class enemyPin : MonoBehaviour
                 rb.AddForce(Vector3.forward * Nyoom, ForceMode.Impulse);
                 rb.AddTorque(Vector3.right * Whoop, ForceMode.Impulse);
             }
+            GameObject winVarObj = GameObject.Find("Win Var");
+            if (winVarObj != null)
+            {
+                Winscript winScript = winVarObj.GetComponent<Winscript>();
+                if (winScript != null)
+                {
+                    winScript.pins += 1;
+                }
+            }
             GetComponent<CapsuleCollider>().enabled = false;
+            GetComponent<CapsuleCollider>().enabled = false;
+            Collider[] colliders = GetComponents<Collider>();
+            colliders[1].enabled = false;
         }
 
-            if (transform.position.y < -50f)
-            {
-                Destroy(gameObject);
-            }
+        if (transform.position.y < -50f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    public float jumpForce = 5f; // Force applied when jumping
+    public float jumpForce = 200f; // Force applied when jumping
     private Rigidbody rb;
     private int jump = 0; // Counter for jump triggers
     private
