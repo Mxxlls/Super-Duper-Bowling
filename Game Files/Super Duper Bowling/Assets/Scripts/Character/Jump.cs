@@ -14,11 +14,25 @@ public class Jump : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        jump = jump + 1;
+        if (other.CompareTag("Pins"))
+        {
+
+        }
+        else
+        {
+            jump = jump + 1;
+        }
     }
     void OnTriggerExit(Collider other)
     {
-        jump = jump - 1;
+        if (other.CompareTag("Pins"))
+        {
+            
+        }
+        else
+        {
+            jump = jump - 1;
+        }
     }
     // Update is called once per frame
     void Update()
