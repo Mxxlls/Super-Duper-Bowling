@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Runnable
+  - Pins
   layers:
   - Default
   - TransparentFX
