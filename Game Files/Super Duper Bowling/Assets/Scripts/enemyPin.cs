@@ -5,12 +5,13 @@ public class enemyPin : MonoBehaviour
 {
     private Rigidbody rb;
     private NavMeshAgent navAgent;
-    private Rigidbody rbp;
     public float Fly = 5f;
     public float Nyoom = 25f;
     public float Whoop = 10f;
     private float forwardSpeed = 0f;
     public Transform player;
+    private float goAmount = 0f;
+    public Rigidbody rbp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,35 +23,13 @@ public class enemyPin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null && navAgent != null)
-        {
-            navAgent.SetDestination(player.position);
-        }
-    }
+        Vector3 currentVelocity = rbp.linearVelocity;
+        float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
+        goAmount = forwardSpeed / 100;
 
-    // Called when another collider enters the trigger collider attached to this object
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        // Despawn pin if it falls below -10 on the y-axis
+        if (transform.position.y < -10f)
         {
-            Rigidbody rbp = other.GetComponent<Rigidbody>();
-            navAgent.enabled = false;
-
-            Vector3 currentVelocity = rbp.linearVelocity;
-            float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
-            // Handle player collision
-            // rbp is player rb
-            Debug.Log("Player collided with enemy pin");
-            rb.constraints &= ~RigidbodyConstraints.FreezeRotation;
-            if (rb != null)
-            {
-                Fly = (Fly * forwardSpeed / 2) + 5;
-                Nyoom = (Nyoom * forwardSpeed / 2) + 5;
-                Whoop = (Whoop * forwardSpeed / 2) + 5;
-                rb.AddForce(Vector3.up * Fly, ForceMode.Impulse);
-                rb.AddForce(Vector3.forward * Nyoom, ForceMode.Impulse);
-                rb.AddTorque(Vector3.right * Whoop, ForceMode.Impulse);
-            }
             GameObject winVarObj = GameObject.Find("Win Var");
             if (winVarObj != null)
             {
@@ -60,15 +39,34 @@ public class enemyPin : MonoBehaviour
                     winScript.pins += 1;
                 }
             }
-            GetComponent<CapsuleCollider>().enabled = false;
-            GetComponent<CapsuleCollider>().enabled = false;
-            Collider[] colliders = GetComponents<Collider>();
-            colliders[1].enabled = false;
-        }
-
-        if (transform.position.y < -50f)
-        {
             Destroy(gameObject);
+        }
+    }
+
+    // Called when another collider enters the trigger collider attached to this object
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Disable the second collider in the list (if it exists)
+            Collider[] colliders = GetComponents<Collider>();
+            if (colliders.Length > 1 && colliders[1] != null)
+            {
+                colliders[1].enabled = false;
+            }
+
+            // Handle player collision
+            // rbp is player rb
+            Debug.Log("Player collided with enemy pin");
+            rb.constraints &= ~RigidbodyConstraints.FreezeRotation;
+            if (rb != null)
+            {
+                Vector3 awayFromPlayer = (transform.position - other.transform.position).normalized;
+                rb.AddForce(awayFromPlayer * Nyoom * goAmount, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * Fly * goAmount, ForceMode.Impulse);
+                Vector3 torqueDirection = Vector3.Cross(Vector3.up, awayFromPlayer).normalized;
+                rb.AddTorque(torqueDirection * Whoop * goAmount, ForceMode.Impulse);
+            }
         }
     }
 }

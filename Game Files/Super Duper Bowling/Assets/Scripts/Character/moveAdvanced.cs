@@ -6,7 +6,6 @@ public class moveAdvanced : MonoBehaviour
     public float deceleration = 5f; // Deceleration force applied when not moving
     private float slideSpeed = 0f;
     private bool sliding = false; // Track sliding state
-    private float sideSpeed = 0f;
     private int grounded = 0; // Counter for grounded state
     private Camera cam; // Reference to the camera component
     private Rigidbody rb; // Reference to the Rigidbody component
