@@ -6,6 +6,8 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject crosshair;
+
     public GameObject StartLevelMenuUI;
     void Start()
     {
@@ -16,7 +18,7 @@ public class PauseMenu : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    { 
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -36,7 +38,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        // crosshair.SetActive(true);
     }
     void Pause()
     {
@@ -45,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        // crosshair.SetActive(false);
     }
     public void LoadMenu()
     {
@@ -59,5 +62,10 @@ public class PauseMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+    public void NextLevel()
+    {
+        // Load the next level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
