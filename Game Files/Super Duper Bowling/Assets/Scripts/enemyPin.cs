@@ -25,7 +25,7 @@ public class enemyPin : MonoBehaviour
     {
         Vector3 currentVelocity = rbp.linearVelocity;
         float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
-        goAmount = forwardSpeed / 100;
+        goAmount = Mathf.Abs(forwardSpeed) / 180;
 
         // Despawn pin if it falls below -10 on the y-axis
         if (transform.position.y < -10f)
@@ -42,7 +42,6 @@ public class enemyPin : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     // Called when another collider enters the trigger collider attached to this object
     private void OnTriggerEnter(Collider other)
     {
@@ -62,10 +61,10 @@ public class enemyPin : MonoBehaviour
             if (rb != null)
             {
                 Vector3 awayFromPlayer = (transform.position - other.transform.position).normalized;
-                rb.AddForce(awayFromPlayer * Nyoom * goAmount, ForceMode.Impulse);
-                rb.AddForce(Vector3.up * Fly * goAmount, ForceMode.Impulse);
+                rb.AddForce(awayFromPlayer * ((Nyoom * goAmount) + 0.1f), ForceMode.Impulse);
+                rb.AddForce(Vector3.up * ((Fly * goAmount) + 0.1f), ForceMode.Impulse);
                 Vector3 torqueDirection = Vector3.Cross(Vector3.up, awayFromPlayer).normalized;
-                rb.AddTorque(torqueDirection * Whoop * goAmount, ForceMode.Impulse);
+                rb.AddTorque(torqueDirection * ((Whoop * goAmount) + 0.1f), ForceMode.Impulse);
             }
         }
     }

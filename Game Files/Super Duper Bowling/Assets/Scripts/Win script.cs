@@ -8,11 +8,16 @@ public class Winscript : MonoBehaviour
     private float time = 0;
     private bool timerActive = false;
     public int levelPins;
+    private GameObject winUI; // Added declaration for winUI
+
     void Start()
     {
         pins = 0;
         // Optionally assign winUI if not set in Inspector:
-        winUI = GameObject.Find("winUI");
+        if (winUI != null)
+        {
+            winUI = GameObject.Find("winUI");
+        }
         timerActive = true;
     }
 
