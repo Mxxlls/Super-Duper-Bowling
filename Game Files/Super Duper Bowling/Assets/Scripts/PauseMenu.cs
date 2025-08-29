@@ -38,7 +38,6 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        // crosshair.SetActive(true);
     }
     void Pause()
     {
@@ -47,7 +46,6 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        // crosshair.SetActive(false);
     }
     public void LoadMenu()
     {
