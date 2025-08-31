@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: f3810412a437e8d48b6f3f4cff0ebfb6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Brodies Scenes/Brodie's Testing Scene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
