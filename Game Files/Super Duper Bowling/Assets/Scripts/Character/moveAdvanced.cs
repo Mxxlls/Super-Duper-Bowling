@@ -4,7 +4,7 @@ public class moveAdvanced : MonoBehaviour
     public float maxSpeed = 10f; // Maximum speed for the character
     public float acceleration = 10f; // Acceleration force applied when moving
     public float deceleration = 5f; // Deceleration force applied when not moving
-    private float slideSpeed = 0f;
+    private float slideSpeed = 0f; // Max speed of the slide
     private bool sliding = false; // Track sliding state
     private int grounded = 0; // Counter for grounded state
     private Camera cam; // Reference to the camera component
