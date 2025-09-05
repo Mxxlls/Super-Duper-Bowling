@@ -5,7 +5,9 @@ public class Jump : MonoBehaviour
     public float jumpForce = 200f; // Force applied when jumping
     private Rigidbody rb;
     private int jump = 0; // Counter for jump triggers
-    private
+    public float coyoteLimit = 0.5f;
+    public bool coyoteTime;
+    private float coyoteTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +18,8 @@ public class Jump : MonoBehaviour
     {
         if (other.CompareTag("Pins"))
         {
-
+            coyoteTime = true;
+            coyoteTimer = 0;
         }
         else
         {
@@ -27,7 +30,7 @@ public class Jump : MonoBehaviour
     {
         if (other.CompareTag("Pins"))
         {
-            
+
         }
         else
         {
@@ -38,18 +41,21 @@ public class Jump : MonoBehaviour
     void Update()
     {
         Vector3 currentVelocity = rb.linearVelocity;
+        if (coyoteTime = true && coyoteTimer >= coyoteLimit)
 
-        if (Input.GetKey(KeyCode.Space) && jump > 0 && Vector3.Dot(currentVelocity, Vector3.up) < 5)
-        {
-            // Apply a force to the Rigidbody to make the character jump
-            float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
-            float sideSpeed = Vector3.Dot(currentVelocity, transform.right);
-
-            // Adjust jump force based on current speed
-            // Apply the jump force
+            if (Input.GetKey(KeyCode.Space) && jump > 0 && Vector3.Dot(currentVelocity, Vector3.up) < 5)
             {
-                rb.AddForce(Vector3.up * jumpForce * Time.deltaTime, ForceMode.Impulse);
+                // Apply a force to the Rigidbody to make the character jump
+                float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
+                float sideSpeed = Vector3.Dot(currentVelocity, transform.right);
+
+                // Adjust jump force based on current speed
+                // Apply the jump force
+                {
+                    rb.AddForce(Vector3.up * jumpForce * Time.deltaTime, ForceMode.Impulse);
+                }
             }
-        }
+            else
+            { coyoteTime = false; }
     }
 }

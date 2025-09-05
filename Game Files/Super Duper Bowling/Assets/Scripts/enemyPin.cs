@@ -24,7 +24,7 @@ public class enemyPin : MonoBehaviour
     void Update()
     {
         Vector3 currentVelocity = rbp.linearVelocity;
-        float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
+        forwardSpeed = Vector3.Dot(currentVelocity, transform.forward + transform.right);
         goAmount = Mathf.Abs(forwardSpeed) / 180;
 
         // Despawn pin if it falls below -10 on the y-axis
