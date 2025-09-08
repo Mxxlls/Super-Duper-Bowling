@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class moveAdvanced : MonoBehaviour
 {
     public float maxSpeed = 10f; // Maximum speed for the character
@@ -6,11 +7,11 @@ public class moveAdvanced : MonoBehaviour
     public float deceleration = 5f; // Deceleration force applied when not moving
     private float slideSpeed = 0f; // Max speed of the slide
     private bool sliding = false; // Track sliding state
-    private int grounded = 0; // Counter for grounded state
     private Camera cam; // Reference to the camera component
     private Rigidbody rb; // Reference to the Rigidbody component
     public float slideBoost = 5f; // Additional speed boost when sliding
     public float slideAcceleration = 20f; // Acceleration force applied when sliding
+    public float destroyHeight = -10;
 
     void Start()
     {
@@ -21,21 +22,18 @@ public class moveAdvanced : MonoBehaviour
     private bool IsGrounded()
     {
         // Check if the character is grounded using a raycast
-        return Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
     // Update is called once per frame
-    void OnTriggerEnter(Collider other)
-    {
-        grounded = grounded + 1;
-    }
-    void OnTriggerExit(Collider other)
-    {
-        grounded = grounded - 1;
-    }
+
     void Update()
     {
         if (rb == null) return;
 
+        if (transform.position.y < destroyHeight)
+        {
+            //SceneManager.Reload;
+        }
         Vector3 currentVelocity = rb.linearVelocity;
         float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
         float sideSpeed = Vector3.Dot(currentVelocity, transform.right);
@@ -104,7 +102,7 @@ public class moveAdvanced : MonoBehaviour
             { }
             else
             {
-                if (grounded > 0 && Mathf.Abs(forwardSpeed) > 0.01f)
+                if (IsGrounded && Mathf.Abs(forwardSpeed) > 0.01f)
                 {
                     rb.AddForce(-transform.forward * (forwardSpeed * deceleration * Time.deltaTime));
                 }
@@ -146,7 +144,7 @@ public class moveAdvanced : MonoBehaviour
             { }
             else
             {
-                if (grounded > 0 && Mathf.Abs(sideSpeed) > 0.01f)
+                if (IsGrounded && Mathf.Abs(sideSpeed) > 0.01f)
                 {
                     rb.AddForce(-transform.right * (sideSpeed * deceleration * Time.deltaTime));
                 }
