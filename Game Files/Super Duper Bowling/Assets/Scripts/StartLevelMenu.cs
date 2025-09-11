@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 public class StartLevelMenu : MonoBehaviour
 {
     public static bool GameIsPaused = true;
     public GameObject StartLevelMenuUI;
     public PauseMenu pauseMenuScript;
+    public Camera cutSceneCamera;
+    public Camera playerCamera;
+
     public void PlayGame()
     {
         Time.timeScale = 1f;
@@ -15,8 +19,9 @@ public class StartLevelMenu : MonoBehaviour
         GameIsPaused = false;
         PauseMenu.GameIsPaused = false;
         pauseMenuScript.enabled = true;
+        StartAnimation();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         pauseMenuScript = GetComponent<PauseMenu>();
@@ -25,6 +30,11 @@ public class StartLevelMenu : MonoBehaviour
         Cursor.visible = true;
         GameIsPaused = true;
             pauseMenuScript.enabled = false;
+    }
+
+    public void StartAnimation()
+    {
+
     }
 
     // Update is called once per frame
