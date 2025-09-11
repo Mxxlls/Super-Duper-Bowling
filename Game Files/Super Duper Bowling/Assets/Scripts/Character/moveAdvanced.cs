@@ -12,17 +12,18 @@ public class moveAdvanced : MonoBehaviour
     public float slideBoost = 5f; // Additional speed boost when sliding
     public float slideAcceleration = 20f; // Acceleration force applied when sliding
     public float destroyHeight = -10;
+    public bool IsGrounded
+    {
+        get
+        {
+            return Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        }
+    }
 
     void Start()
     {
         cam = GetComponentInChildren<Camera>();
         rb = GetComponent<Rigidbody>();
-    }
-    // Stop sliding when the key is released
-    private bool IsGrounded()
-    {
-        // Check if the character is grounded using a raycast
-        Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
     // Update is called once per frame
 
