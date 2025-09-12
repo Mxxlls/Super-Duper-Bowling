@@ -10,6 +10,9 @@ public class StartLevelMenu : MonoBehaviour
     public Camera cutSceneCamera;
     public Camera playerCamera;
 
+    public Animation ballRoll;
+    public Animation cameraMove;
+
     public void PlayGame()
     {
         Time.timeScale = 1f;
@@ -34,6 +37,7 @@ public class StartLevelMenu : MonoBehaviour
 
     public void StartAnimation()
     {
+
 
     }
 
