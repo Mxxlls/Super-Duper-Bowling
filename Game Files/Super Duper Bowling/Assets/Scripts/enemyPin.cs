@@ -57,7 +57,8 @@ public class enemyPin : MonoBehaviour
             // Handle player collision
             // rbp is player rb
             Debug.Log("Player collided with enemy pin");
-            rb.constraints &= ~RigidbodyConstraints.FreezeRotation;
+            // Unfreeze rotation and position
+            rb.constraints = RigidbodyConstraints.None;
             if (rb != null)
             {
                 Vector3 awayFromPlayer = (transform.position - other.transform.position).normalized;
