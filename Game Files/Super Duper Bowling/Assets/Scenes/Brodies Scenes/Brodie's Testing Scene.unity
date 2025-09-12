@@ -4540,6 +4540,8 @@ MonoBehaviour:
   pauseMenuScript: {fileID: 0}
   cutSceneCamera: {fileID: 0}
   playerCamera: {fileID: 0}
+  ballRoll: {fileID: 0}
+  cameraMove: {fileID: 0}
 --- !u!114 &539545754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5526,7 +5528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Initiation
+  m_text: Fast go nyoom wee
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5553,8 +5555,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 49.91
-  m_fontSizeBase: 49.91
+  m_fontSize: 39
+  m_fontSizeBase: 39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5591,7 +5593,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.97509, w: 0}
+  m_margin: {x: 0, y: 0, z: -133.56746, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -20239,6 +20241,10 @@ PrefabInstance:
     - target: {fileID: 5363316606292898698, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5568209501840805579, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
+      propertyPath: coyoteLimit
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

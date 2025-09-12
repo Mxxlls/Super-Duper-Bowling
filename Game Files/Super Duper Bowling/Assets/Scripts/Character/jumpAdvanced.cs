@@ -36,22 +36,24 @@ public class jumpAdvanced : MonoBehaviour
         }
         if (isGrounded == true)
         {
-            coyoteTimer = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && coyoteLimit > coyoteTimer)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("jump");
-            coyoteTimer = coyoteLimit;
-        }
-        else if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
-        {
-            Debug.Log("part one");
-            if (Vector3.Dot(currentVelocity, Vector3.up) < climbSpeed && Input.GetKey(KeyCode.Space))
+            coyoteTimer = coyoteTimer - 1 * Time.deltaTime;
+            if (coyoteTimer < 0)
             {
-                rb.AddForce(Vector3.up * jumpForce * 600 * Time.deltaTime);
-                Debug.Log("part two");
+                coyoteTimer = 0;
             }
         }
+        if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && coyoteLimit > coyoteTimer)
+            {
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                coyoteTimer = (coyoteLimit * 2);
+            }
+            else if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
+            {
+                if (Vector3.Dot(currentVelocity, Vector3.up) < climbSpeed && Input.GetKey(KeyCode.Space))
+                {
+                    rb.AddForce(Vector3.up * jumpForce * 600 * Time.deltaTime);
+                }
+            }
     }
 }

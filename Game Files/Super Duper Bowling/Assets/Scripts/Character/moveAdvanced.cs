@@ -19,7 +19,6 @@ public class moveAdvanced : MonoBehaviour
             return Physics.Raycast(transform.position, Vector3.down, 1.1f);
         }
     }
-
     void Start()
     {
         cam = GetComponentInChildren<Camera>();
