@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using UnityEngine.Animations;
 public class StartLevelMenu : MonoBehaviour
 {
     public static bool GameIsPaused = true;
@@ -9,10 +10,20 @@ public class StartLevelMenu : MonoBehaviour
     public PauseMenu pauseMenuScript;
     public Camera cutSceneCamera;
     public Camera playerCamera;
+    public Animator ballRoll;
+    public Animator cameraMove;
 
-    public Animation ballRoll;
-    public Animation cameraMove;
-
+    public bool doneAnim = false;
+    public float animTime = 2.2f;
+    void Start()
+    {
+        pauseMenuScript = GetComponent<PauseMenu>();
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameIsPaused = true;
+        pauseMenuScript.enabled = false;
+    }
     public void PlayGame()
     {
         Time.timeScale = 1f;
@@ -24,26 +35,27 @@ public class StartLevelMenu : MonoBehaviour
         pauseMenuScript.enabled = true;
         StartAnimation();
     }
-
-    void Start()
-    {
-        pauseMenuScript = GetComponent<PauseMenu>();
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        GameIsPaused = true;
-            pauseMenuScript.enabled = false;
-    }
-
     public void StartAnimation()
     {
-
-
+        ballRoll.SetTrigger("Active");
+        cameraMove.SetTrigger("Active");
     }
-
-    // Update is called once per frame
-    void Update()
+    public void LaunchPlayer()
     {
-        
+        playerCamera.enabled = true;
+        playerCamera = Camera.main;
+        cutSceneCamera.enabled = false;
+    }
+    void update()
+    {
+        if (doneAnim == false)
+        {
+            animTime = animTime - Time.time;
+            if (animTime < 0)
+            {
+                LaunchPlayer();
+                doneAnim = true;
+            }
+        }
     }
 }
