@@ -18,9 +18,11 @@ public class StartLevelMenu : MonoBehaviour
     public GameObject fakeBall;
     public GameObject player;
     public Rigidbody playerRB;
+    public GameObject timeCounter;
 
     public bool doneAnim = false;
     public float animTime = 2.2f;
+    public TimerController timerController; // Add this at the top with other public fields
     void Start()
     {
         playerRB = player.GetComponent<Rigidbody>();
@@ -42,6 +44,7 @@ public class StartLevelMenu : MonoBehaviour
         fakeBall.SetActive(true);
         player.SetActive(false);
         pauseMenuScript.enabled = true;
+
     }
     public void StartAnimation()
     {
@@ -59,6 +62,11 @@ public class StartLevelMenu : MonoBehaviour
         cutSceneCam.enabled= false;
         GameIsPaused = false;
         PauseMenu.GameIsPaused = false;
+        timeCounter.SetActive(true);
+
+        // timer
+        if (timerController != null)
+            timerController.StartTimer();
 
         //launch the player
         playerRB.AddForce(Vector3.up * (+ 10f), ForceMode.Impulse);
