@@ -8,17 +8,20 @@ public class Winscript : MonoBehaviour
     private float time = 0;
     private bool timerActive = false;
     public int levelPins;
-    private GameObject winUI; // Added declaration for winUI
+    public GameObject winUI; // Added declaration for winUI
+    public static bool GameIsPaused = false;
 
     void Start()
     {
         pins = 0;
-        // Optionally assign winUI if not set in Inspector:
-        if (winUI != null)
-        {
-            winUI = GameObject.Find("winUI");
-        }
         timerActive = true;
+    }
+    public void win()
+    {
+        GameIsPaused = true;
+        Debug.Log("Strike!"); // Temporary win log
+        Time.timeScale = 0; // Slow down all gameplay (not framerate)
+        winUI.SetActive(true); //sets win menu active.            
     }
 
     // Update is called once per frame
@@ -28,13 +31,7 @@ public class Winscript : MonoBehaviour
             time = time + Time.deltaTime;
         if (pins >= levelPins)
         {
-            Debug.Log("Strike!"); // Temporary win log
-            Time.timeScale = 0; // Slow down all gameplay (not framerate)
-            if (winUI != null)
-            {
-                winUI.SetActive(true); //sets win menu active.
-                // When implemented, the if statement can be deleted.
-            }
+            win();
         }
     }
 }

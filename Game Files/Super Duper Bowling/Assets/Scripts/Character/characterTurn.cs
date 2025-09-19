@@ -9,6 +9,7 @@ public class CharacterTurn : MonoBehaviour
     private bool sliding = false; // Track sliding state
     private float camAngle = 0;
     private bool isPaused = false;
+    
 
     // Removed OnEnable, OnDisable, PauseScript, and ResumeScript methods as GameManager is not defined
 
@@ -27,6 +28,7 @@ public class CharacterTurn : MonoBehaviour
         // Only allow camera movement if the game is not paused
         if (PauseMenu.GameIsPaused) return;
         if (StartLevelMenu.GameIsPaused) return;
+        if (Winscript.GameIsPaused) return;
 
         float mouseY = Input.GetAxis("Mouse Y");
         if (cam != null)
