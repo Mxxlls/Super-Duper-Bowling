@@ -6364,10 +6364,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartLevelMenuUI: {fileID: 1355015746}
   pauseMenuScript: {fileID: 0}
-  cutSceneCamera: {fileID: 0}
-  playerCamera: {fileID: 0}
+  cutSceneCam: {fileID: 0}
+  playerCam: {fileID: 0}
   ballRoll: {fileID: 0}
   cameraMove: {fileID: 0}
+  fakeBall: {fileID: 0}
+  player: {fileID: 0}
+  playerRB: {fileID: 0}
+  doneAnim: 0
+  animTime: 2.2
 --- !u!114 &1285586952
 MonoBehaviour:
   m_ObjectHideFlags: 0
