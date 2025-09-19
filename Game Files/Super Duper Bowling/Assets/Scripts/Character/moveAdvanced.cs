@@ -28,6 +28,9 @@ public class moveAdvanced : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.GameIsPaused) return;
+        if (StartLevelMenu.GameIsPaused) return;
+        if (Winscript.GameIsPaused) return;
         if (rb == null) return;
 
         if (transform.position.y < destroyHeight)

@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Runnable
   - Pins
+  - StartLevelScript
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - UI0
   - Water
   - UI
   - UI2
