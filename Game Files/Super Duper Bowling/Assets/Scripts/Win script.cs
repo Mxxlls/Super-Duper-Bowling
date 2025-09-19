@@ -10,7 +10,7 @@ public class Winscript : MonoBehaviour
     public int levelPins;
     public GameObject winUI; // Added declaration for winUI
     public static bool GameIsPaused = false;
-
+    public GameObject timeCounter;
     void Start()
     {
         pins = 0;
@@ -21,7 +21,14 @@ public class Winscript : MonoBehaviour
         GameIsPaused = true;
         Debug.Log("Strike!"); // Temporary win log
         Time.timeScale = 0; // Slow down all gameplay (not framerate)
-        winUI.SetActive(true); //sets win menu active.            
+        winUI.SetActive(true); //sets win menu active.
+        timeCounter.SetActive(false);
+
+        // End the timer using TimerController
+        if (TimerController.instance != null)
+        {
+            TimerController.instance.EndTimer();
+        }
     }
 
     // Update is called once per frame
