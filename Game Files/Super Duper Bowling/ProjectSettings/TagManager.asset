@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Runnable
   - Pins
+  - StartLevelScript
   layers:
   - Default
   - TransparentFX
