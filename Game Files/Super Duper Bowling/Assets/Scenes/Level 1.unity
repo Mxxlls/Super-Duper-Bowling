@@ -1566,6 +1566,7 @@ GameObject:
   - component: {fileID: 272787719}
   - component: {fileID: 272787724}
   - component: {fileID: 272787725}
+  - component: {fileID: 272787726}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1693,6 +1694,8 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   ballRoll: {fileID: 0}
   cameraMove: {fileID: 0}
+  doneAnim: 0
+  animTime: 2.2
 --- !u!114 &272787725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,6 +1710,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 1bcb6ee1050c7784a977b4b3b77acffe, type: 2}
   resolutionDropdown: {fileID: 778980116}
+--- !u!114 &272787726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272787718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07f4c9ee0cc984b4d834e866cbf29e18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeCounter: {fileID: 824558603}
 --- !u!43 &282246974
 Mesh:
   m_ObjectHideFlags: 0
@@ -5032,8 +5048,8 @@ GameObject:
   - component: {fileID: 824558602}
   - component: {fileID: 824558604}
   - component: {fileID: 824558603}
-  m_Layer: 5
-  m_Name: Time (1)
+  m_Layer: 3
+  m_Name: timeCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11293,7 +11309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1836976708
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11955,13 +11971,13 @@ GameObject:
   - component: {fileID: 1913010125}
   - component: {fileID: 1913010127}
   - component: {fileID: 1913010126}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OverlayUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1913010125
 RectTransform:
   m_ObjectHideFlags: 0
