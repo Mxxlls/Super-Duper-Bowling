@@ -41,8 +41,8 @@ public class moveAdvanced : MonoBehaviour
         float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
         float sideSpeed = Vector3.Dot(currentVelocity, transform.right);
 
-        // Start sliding when key is pressed and speed is high enough
-        if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl))
+        // Start sliding when key is pressed
+        if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftShift))
         {
             transform.localScale = new Vector3(1f, 0.5f, 1f);
             slideSpeed = Mathf.Max(forwardSpeed, sideSpeed) + slideBoost;
@@ -53,7 +53,7 @@ public class moveAdvanced : MonoBehaviour
         }
 
         // Stop sliding when key is released
-        if (Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftShift))
         {
             sliding = false;
             slideSpeed = 0f;
@@ -70,7 +70,7 @@ public class moveAdvanced : MonoBehaviour
         {
             slideSpeed -= 5 * Time.deltaTime;
         }
-        if (!(Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl)))
+        if (!(Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftShift)))
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
             if (Input.GetKey(KeyCode.W) && (forwardSpeed < maxSpeed))
