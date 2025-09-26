@@ -11,6 +11,8 @@ public class TimerController : MonoBehaviour
     private TimeSpan timePlaying;
     private bool timerGoing;
     private float elapsedTime;
+    public string timePlayingStr;
+    public GameObject timeText;
     private void Awake()
     {
         instance = this;
@@ -30,6 +32,7 @@ public class TimerController : MonoBehaviour
     public void EndTimer()
     {
         timerGoing = false;
+        timeText.GetComponent<TextMeshProUGUI>().text = timePlayingStr;
     }
     private IEnumerator UpdateTimer()
     {
@@ -37,7 +40,7 @@ public class TimerController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             timePlaying = TimeSpan.FromSeconds(elapsedTime);
-            string timePlayingStr = "Time :" + timePlaying.ToString("mm':'ss'.'fff");
+            timePlayingStr = "Time: " + timePlaying.ToString("mm':'ss'.'fff");
             timeCounter.text = timePlayingStr;
             yield return null;
         }
