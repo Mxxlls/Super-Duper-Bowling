@@ -58,8 +58,8 @@ public class StartLevelMenu : MonoBehaviour
         //initialise the swap
         player.SetActive(true);
         fakeBall.SetActive(false);
-        playerCam.enabled= true;
-        cutSceneCam.enabled= false;
+        playerCam.enabled = true;
+        cutSceneCam.enabled = false;
         GameIsPaused = false;
         PauseMenu.GameIsPaused = false;
         timeCounter.SetActive(true);
@@ -69,7 +69,7 @@ public class StartLevelMenu : MonoBehaviour
             timerController.StartTimer();
 
         //launch the player
-        playerRB.AddForce(Vector3.up * (+ 10f), ForceMode.Impulse);
+        playerRB.AddForce(Vector3.up * (+10f), ForceMode.Impulse);
         playerRB.AddForce(Vector3.right * (+20f), ForceMode.Impulse);
 
     }
