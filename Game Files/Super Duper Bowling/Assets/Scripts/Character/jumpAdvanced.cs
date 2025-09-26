@@ -36,11 +36,7 @@ public class jumpAdvanced : MonoBehaviour
         }
         if (isGrounded == true)
         {
-            coyoteTimer = coyoteTimer - 1 * Time.deltaTime;
-            if (coyoteTimer < 0)
-            {
-                coyoteTimer = 0;
-            }
+            coyoteTimer = 0;
         }
         if (Input.GetKey(KeyCode.Space))
             if (Input.GetKeyDown(KeyCode.Space) && coyoteLimit > coyoteTimer)

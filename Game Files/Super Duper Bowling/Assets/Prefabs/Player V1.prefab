@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2097031613644459954}
   - component: {fileID: 3105874352661689802}
   - component: {fileID: 5568209501840805579}
+  - component: {fileID: 2142719249912767339}
   m_Layer: 0
   m_Name: Player V1
   m_TagString: Player
@@ -172,6 +173,7 @@ MonoBehaviour:
   deceleration: 400
   slideBoost: 10
   slideAcceleration: 20
+  destroyHeight: -10
 --- !u!114 &5568209501840805579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +188,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   climbSpeed: 7
-  coyoteLimit: 0.1
+  coyoteLimit: 0.5
+--- !u!114 &2142719249912767339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239415946613901116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7574b230f494a60a3e3fc2f332683e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetHeight: -10
 --- !u!1 &995704711018228771
 GameObject:
   m_ObjectHideFlags: 0

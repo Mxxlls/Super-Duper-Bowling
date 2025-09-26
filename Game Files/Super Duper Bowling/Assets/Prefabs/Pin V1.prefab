@@ -144,11 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fad2f5bf530044aa9ee52399bfaea05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fly: 2.5
+  Fly: 1
   Nyoom: 2.5
-  Whoop: 5
-  player: {fileID: 0}
-  rbp: {fileID: 0}
+  Whoop: 3
+  player: {fileID: 5363316606292898698, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
+  rbp: {fileID: 9219827198538271270, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
 --- !u!54 &6054474072867244632
 Rigidbody:
   m_ObjectHideFlags: 0

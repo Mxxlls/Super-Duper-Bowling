@@ -61,7 +61,9 @@ public class enemyPin : MonoBehaviour
             rb.constraints = RigidbodyConstraints.None;
             if (rb != null)
             {
-                Vector3 awayFromPlayer = (transform.position - other.transform.position).normalized;
+                Vector3 awayFromPlayer = transform.position - other.transform.position;
+                awayFromPlayer.y = 0f;
+                awayFromPlayer = awayFromPlayer.normalized;
                 rb.AddForce(awayFromPlayer * ((Nyoom * goAmount) + 0.1f), ForceMode.Impulse);
                 rb.AddForce(Vector3.up * ((Fly * goAmount) + 0.1f), ForceMode.Impulse);
                 Vector3 torqueDirection = Vector3.Cross(Vector3.up, awayFromPlayer).normalized;

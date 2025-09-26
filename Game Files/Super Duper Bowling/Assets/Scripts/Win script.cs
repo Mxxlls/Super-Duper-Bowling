@@ -16,6 +16,7 @@ public class Winscript : MonoBehaviour
     {
         pins = 0;
         timerActive = true;
+        GameIsPaused = false;
     }
     public void win()
     {
