@@ -65,8 +65,7 @@ public class StartLevelMenu : MonoBehaviour
         timeCounter.SetActive(true);
 
         // timer
-        if (timerController != null)
-            timerController.StartTimer();
+        timerController.StartTimer();
 
         //launch the player
         playerRB.AddForce(Vector3.up * (+ 10f), ForceMode.Impulse);
