@@ -26,7 +26,6 @@ public class StartLevelMenu : MonoBehaviour
     void Start()
     {
         playerRB = player.GetComponent<Rigidbody>();
-
         pauseMenuScript = GetComponent<PauseMenu>();
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
@@ -62,10 +61,11 @@ public class StartLevelMenu : MonoBehaviour
         cutSceneCam.enabled= false;
         GameIsPaused = false;
         PauseMenu.GameIsPaused = false;
-        timeCounter.SetActive(true);
 
-        // timer
+        //timer
+        timeCounter.SetActive(true);
         timerController.StartTimer();
+        Debug.LogWarning("Timer started");
 
         //launch the player
         playerRB.AddForce(Vector3.up * (+ 10f), ForceMode.Impulse);
