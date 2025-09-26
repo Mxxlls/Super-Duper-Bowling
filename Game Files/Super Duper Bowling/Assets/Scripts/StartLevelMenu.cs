@@ -35,7 +35,13 @@ public class StartLevelMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        StartAnimation();
+        if (!cutSceneCam)
+        {
+            GameIsPaused = false;
+            PauseMenu.GameIsPaused = false;
+        }
+        else
+            StartAnimation();
         Time.timeScale = 1f;
         StartLevelMenuUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;

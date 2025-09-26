@@ -3921,6 +3921,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453862174}
   m_CullTransparentMesh: 1
+--- !u!1 &455633964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 239415946613901116, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
+  m_PrefabInstance: {fileID: 2105488184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &467700207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4537,11 +4542,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartLevelMenuUI: {fileID: 1093941326}
-  pauseMenuScript: {fileID: 0}
-  cutSceneCamera: {fileID: 0}
-  playerCamera: {fileID: 0}
+  pauseMenuScript: {fileID: 539545754}
+  cutSceneCam: {fileID: 0}
+  playerCam: {fileID: 1345951089}
   ballRoll: {fileID: 0}
   cameraMove: {fileID: 0}
+  fakeBall: {fileID: 0}
+  player: {fileID: 455633964}
+  playerRB: {fileID: 239033769}
+  timeCounter: {fileID: 0}
+  doneAnim: 0
+  animTime: 2.2
+  timerController: {fileID: 0}
 --- !u!114 &539545754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11679,6 +11691,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
+--- !u!20 &1345951089 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3924957278957043841, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
+  m_PrefabInstance: {fileID: 2105488184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1347348026
 PrefabInstance:
   m_ObjectHideFlags: 0
