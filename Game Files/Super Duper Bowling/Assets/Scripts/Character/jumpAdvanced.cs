@@ -8,6 +8,7 @@ public class jumpAdvanced : MonoBehaviour
     public float coyoteLimit;
     private float coyoteTimer;
     private Rigidbody rb;
+    private float jumpDelay = 0.1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +20,7 @@ public class jumpAdvanced : MonoBehaviour
     void Update()
     {
         Vector3 currentVelocity = rb.linearVelocity;
+        jumpDelay = jumpDelay + Time.deltaTime;
 
         if (coyoteTimer < coyoteLimit)
         {
@@ -39,10 +41,11 @@ public class jumpAdvanced : MonoBehaviour
             coyoteTimer = 0;
         }
         if (Input.GetKey(KeyCode.Space))
-            if (Input.GetKeyDown(KeyCode.Space) && coyoteLimit > coyoteTimer)
+            if (Input.GetKeyDown(KeyCode.Space) && coyoteLimit > coyoteTimer && jumpDelay > 0.6f)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 coyoteTimer = (coyoteLimit * 2);
+                jumpDelay = 0f;
             }
             else if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
             {

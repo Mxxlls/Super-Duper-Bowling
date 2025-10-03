@@ -7,17 +7,17 @@ public class StartLevelMenu : MonoBehaviour
 {
     public static bool GameIsPaused = true;
     public GameObject StartLevelMenuUI;
-    public PauseMenu pauseMenuScript;
+    private PauseMenu pauseMenuScript;
 
     public Camera cutSceneCam;
-    public Camera playerCam;
+    private Camera playerCam;
 
     public Animator ballRoll;
     public Animator cameraMove;
 
     public GameObject fakeBall;
     public GameObject player;
-    public Rigidbody playerRB;
+    private Rigidbody playerRB;
     public GameObject timeCounter;
 
     public bool doneAnim = false;
@@ -27,6 +27,8 @@ public class StartLevelMenu : MonoBehaviour
     {
         playerRB = player.GetComponent<Rigidbody>();
         pauseMenuScript = GetComponent<PauseMenu>();
+        playerCam = player.GetComponentInChildren<Camera>();
+        playerRB = player.GetComponent<Rigidbody>();
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -76,10 +78,6 @@ public class StartLevelMenu : MonoBehaviour
         //launch the player
         playerRB.AddForce(Vector3.up * (+10f), ForceMode.Impulse);
         playerRB.AddForce(Vector3.right * (+20f), ForceMode.Impulse);
-
-    }
-    void update()
-    {
 
     }
 }

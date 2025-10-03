@@ -53,7 +53,7 @@ public class moveAdvanced : MonoBehaviour
         }
 
         // Stop sliding when key is released
-        if (Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftShift))
         {
             sliding = false;
             slideSpeed = 0f;
@@ -70,7 +70,7 @@ public class moveAdvanced : MonoBehaviour
         {
             slideSpeed -= 5 * Time.deltaTime;
         }
-        if (!(Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftShift)))
+        if (!(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftShift)))
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
             if (Input.GetKey(KeyCode.W) && (forwardSpeed < maxSpeed))

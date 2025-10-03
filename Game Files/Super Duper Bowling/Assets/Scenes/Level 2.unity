@@ -1134,6 +1134,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &684154228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9089949750326523610, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+  m_PrefabInstance: {fileID: 8241928538521299846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641b9aaedd4a0d240b9d759df4eaa47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &910270419
 Mesh:
   m_ObjectHideFlags: 0
@@ -4433,7 +4444,7 @@ PrefabInstance:
       objectReference: {fileID: 351291483}
     - target: {fileID: 120390504182790278, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_VersionIndex
-      value: 19732
+      value: 19744
       objectReference: {fileID: 0}
     - target: {fileID: 207501121460343210, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4483,6 +4494,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 351291483}
+    - target: {fileID: 7966119552169209333, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      propertyPath: pauseMenuScript
+      value: 
+      objectReference: {fileID: 684154228}
     - target: {fileID: 8538877176018729938, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_Name
       value: 1.1 Start Game Reqs

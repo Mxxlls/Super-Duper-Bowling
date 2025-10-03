@@ -7,8 +7,6 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject crosshair;
-
-    public GameObject StartLevelMenuUI;
     void Start()
     {
         // Time.timeScale = 1f; // Ensure the game starts unpaused
