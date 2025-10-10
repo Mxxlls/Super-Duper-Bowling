@@ -5009,7 +5009,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 3480102000644225823}
   crosshair: {fileID: 0}
-  StartLevelMenuUI: {fileID: 0}
 --- !u!114 &7966119552169209333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5023,14 +5022,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartLevelMenuUI: {fileID: 3761368910884637443}
-  pauseMenuScript: {fileID: 0}
   cutSceneCam: {fileID: 4224724219077805904}
-  playerCam: {fileID: 1721172420850605064}
   ballRoll: {fileID: 4030082166682003061}
   cameraMove: {fileID: 3301744771264372428}
   fakeBall: {fileID: 2458038033365872008}
   player: {fileID: 2506386662839425973}
-  playerRB: {fileID: 6803123837823456943}
   timeCounter: {fileID: 7926215863497722740}
   doneAnim: 0
   animTime: 2.2
@@ -6724,6 +6720,10 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 19726
       objectReference: {fileID: 0}
+    - target: {fileID: 6188222262164099322, guid: 01d9ea525c222744cbca771352c25086, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 57fecf78177aa1944b4b4a9c57005316, type: 2}
     - target: {fileID: 6927135110553883267, guid: 01d9ea525c222744cbca771352c25086, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1008.4292
@@ -6773,11 +6773,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01d9ea525c222744cbca771352c25086, type: 3}
---- !u!20 &1721172420850605064 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3539890934088934395, guid: 01d9ea525c222744cbca771352c25086, type: 3}
-  m_PrefabInstance: {fileID: 2793055570272255987}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2458038033365872008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 350816430732399227, guid: 01d9ea525c222744cbca771352c25086, type: 3}
@@ -6806,10 +6801,5 @@ Camera:
 --- !u!4 &5107307997000084848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6927135110553883267, guid: 01d9ea525c222744cbca771352c25086, type: 3}
-  m_PrefabInstance: {fileID: 2793055570272255987}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &6803123837823456943 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8695149231363942748, guid: 01d9ea525c222744cbca771352c25086, type: 3}
   m_PrefabInstance: {fileID: 2793055570272255987}
   m_PrefabAsset: {fileID: 0}
