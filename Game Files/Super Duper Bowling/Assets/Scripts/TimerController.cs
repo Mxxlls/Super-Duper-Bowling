@@ -13,6 +13,7 @@ public class TimerController : MonoBehaviour
     private float elapsedTime;
     public string timePlayingStr;
     public GameObject timeText;
+    public GameObject pinScore;
     private void Awake()
     {
         instance = this;

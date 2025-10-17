@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pin V1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae19df0bb02f27b418a92c0db4605aa6, type: 3}
+      propertyPath: m_TagString
+      value: Pins
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -129,9 +133,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.025
-  m_Height: 0.0274
+  m_Height: 0.025
   m_Direction: 2
-  m_Center: {x: 0, y: 2.9477306e-17, z: 0.004741213}
+  m_Center: {x: 0, y: 2.9477306e-17, z: 0.006}
 --- !u!114 &6399277971678605435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +153,8 @@ MonoBehaviour:
   Whoop: 3
   player: {fileID: 5363316606292898698, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
   rbp: {fileID: 9219827198538271270, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
+  pinCollider: {fileID: 3958182148559226497}
+  playerCollider: {fileID: 4668022421259082265}
 --- !u!54 &6054474072867244632
 Rigidbody:
   m_ObjectHideFlags: 0
