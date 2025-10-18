@@ -91,8 +91,8 @@ public class wallRun1 : MonoBehaviour
                 //if (Input.GetButtonDown("Jump")) //or GetButtonDown to jump with press duration
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    //isWallRunning = false;
-                    //Invoke("ExitWallRunning", wallRunDuration * Time.deltaTime);
+                    isWallRunning = false;
+                    Invoke("ExitWallRunning", wallRunDuration * Time.deltaTime);
 
 
                     //rb.AddForce(new Vector3(-2, 0, 0), ForceMode.Impulse);
