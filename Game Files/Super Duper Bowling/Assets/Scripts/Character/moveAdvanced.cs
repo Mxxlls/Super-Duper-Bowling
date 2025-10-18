@@ -7,7 +7,8 @@ public class moveAdvanced : MonoBehaviour
     public float deceleration = 5f; // Deceleration force applied when not moving
     private float slideSpeed = 0f; // Max speed of the slide
     private bool sliding = false; // Track sliding state
-    private Camera cam; // Reference to the camera component
+    public GameObject playerCam; // Reference to the camera component
+    public float FOV = 60; // Default FOV value
     private Rigidbody rb; // Reference to the Rigidbody component
     public float slideBoost = 5f; // Additional speed boost when sliding
     public float slideAcceleration = 20f; // Acceleration force applied when sliding
@@ -21,7 +22,6 @@ public class moveAdvanced : MonoBehaviour
     }
     void Start()
     {
-        cam = GetComponentInChildren<Camera>();
         rb = GetComponent<Rigidbody>();
     }
     // Update is called once per frame
@@ -40,6 +40,15 @@ public class moveAdvanced : MonoBehaviour
         Vector3 currentVelocity = rb.linearVelocity;
         float forwardSpeed = Vector3.Dot(currentVelocity, transform.forward);
         float sideSpeed = Vector3.Dot(currentVelocity, transform.right);
+
+        // Manage FOV Changes
+
+        if ((forwardSpeed / 2) < (FOV * 2))
+        {
+            playerCam.GetComponent<Camera>().fieldOfView = FOV + (forwardSpeed / 2);
+        }
+
+
 
         // Start sliding when key is pressed
         if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftShift))

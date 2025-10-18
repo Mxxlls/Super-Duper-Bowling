@@ -76,6 +76,7 @@ public class StartLevelMenu : MonoBehaviour
         Debug.LogWarning("Timer started");
 
         //launch the player
+        player.GetComponentInChildren<MeshRenderer>().enabled = false; //hides player
         playerRB.AddForce(Vector3.up * (+10f), ForceMode.Impulse);
         playerRB.AddForce(Vector3.right * (+20f), ForceMode.Impulse);
 

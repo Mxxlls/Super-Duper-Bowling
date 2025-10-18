@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -5,6 +6,7 @@ public class enemyPin : MonoBehaviour
 {
     private Rigidbody rb;
     private NavMeshAgent navAgent;
+    private Vector3 startpos;
     public float Fly = 5f;
     public float Nyoom = 25f;
     public float Whoop = 10f;
@@ -13,11 +15,16 @@ public class enemyPin : MonoBehaviour
     private float goAmount = 0f;
     public Rigidbody rbp;
 
+    public Collider pinCollider;
+    public Collider playerCollider;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         navAgent = GetComponent<NavMeshAgent>();
+
+        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Update is called once per frame
@@ -30,23 +37,20 @@ public class enemyPin : MonoBehaviour
         // Despawn pin if it falls below -10 on the y-axis
         if (transform.position.y < -10f)
         {
-            GameObject winVarObj = GameObject.Find("Win Var");
-            if (winVarObj != null)
-            {
-                Winscript winScript = winVarObj.GetComponent<Winscript>();
-                if (winScript != null)
-                {
-                    winScript.pins += 1;
-                }
-            }
             Destroy(gameObject);
         }
+
     }
     // Called when another collider enters the trigger collider attached to this object
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            GameObject winVarObj = GameObject.Find("Win Var");
+            Winscript winScript = winVarObj.GetComponent<Winscript>();
+            winScript.pins += 1;
+            rb.constraints = RigidbodyConstraints.None;
+
             // Disable the second collider in the list (if it exists)
             Collider[] colliders = GetComponents<Collider>();
             if (colliders.Length > 1 && colliders[1] != null)
@@ -59,6 +63,7 @@ public class enemyPin : MonoBehaviour
             Debug.Log("Player collided with enemy pin");
             // Unfreeze rotation and position
             rb.constraints = RigidbodyConstraints.None;
+
             if (rb != null)
             {
                 Vector3 awayFromPlayer = transform.position - other.transform.position;
@@ -70,5 +75,14 @@ public class enemyPin : MonoBehaviour
                 rb.AddTorque(torqueDirection * ((Whoop * goAmount) + 0.1f), ForceMode.Impulse);
             }
         }
+        else if (other.CompareTag("Pins") && rb.constraints != RigidbodyConstraints.FreezeAll)
+        {
+            GameObject winVarObj = GameObject.Find("Win Var");
+            Winscript winScript = winVarObj.GetComponent<Winscript>();
+            winScript.pins += 1;
+            rb.constraints = RigidbodyConstraints.None;
+        }
+
+
     }
 }
