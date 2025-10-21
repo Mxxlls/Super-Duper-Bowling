@@ -22,6 +22,7 @@ public class Winscript : MonoBehaviour
     public GameObject playerCam; // playercam reference to deactivate
     public GameObject player;
     public bool gameWon = false;
+    public Animator winUIanim;
     void Start()
     {
         pins = 0;
@@ -58,6 +59,6 @@ public class Winscript : MonoBehaviour
         }
 
         //display score
-        pinScore.GetComponent<TextMeshProUGUI>().text = "Pins Hit: " + pins + "/10";
+        pinScore.GetComponent<TextMeshProUGUI>().text = "Pins Hit: " + pins + "/" + levelPins;
     }
 }

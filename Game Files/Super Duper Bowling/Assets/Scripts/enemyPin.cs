@@ -23,8 +23,12 @@ public class enemyPin : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         navAgent = GetComponent<NavMeshAgent>();
-
         rb.constraints = RigidbodyConstraints.FreezeAll;
+
+        GameObject winVarObj = GameObject.Find("Win Var");
+        Winscript winScript = winVarObj.GetComponent<Winscript>();
+        winScript.levelPins += 1;
+        Debug.LogWarning("pins on map = " + winScript.levelPins);
     }
 
     // Update is called once per frame
@@ -51,6 +55,8 @@ public class enemyPin : MonoBehaviour
             winScript.pins += 1;
             rb.constraints = RigidbodyConstraints.None;
 
+            Debug.LogWarning("pin hit by player");
+
             // Disable the second collider in the list (if it exists)
             Collider[] colliders = GetComponents<Collider>();
             if (colliders.Length > 1 && colliders[1] != null)
@@ -60,7 +66,6 @@ public class enemyPin : MonoBehaviour
 
             // Handle player collision
             // rbp is player rb
-            Debug.Log("Player collided with enemy pin");
             // Unfreeze rotation and position
             rb.constraints = RigidbodyConstraints.None;
 
@@ -75,14 +80,5 @@ public class enemyPin : MonoBehaviour
                 rb.AddTorque(torqueDirection * ((Whoop * goAmount) + 0.1f), ForceMode.Impulse);
             }
         }
-        else if (other.CompareTag("Pins") && rb.constraints != RigidbodyConstraints.FreezeAll)
-        {
-            GameObject winVarObj = GameObject.Find("Win Var");
-            Winscript winScript = winVarObj.GetComponent<Winscript>();
-            winScript.pins += 1;
-            rb.constraints = RigidbodyConstraints.None;
-        }
-
-
     }
 }
