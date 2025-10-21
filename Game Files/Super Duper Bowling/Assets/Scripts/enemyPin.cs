@@ -28,7 +28,6 @@ public class enemyPin : MonoBehaviour
         GameObject winVarObj = GameObject.Find("Win Var");
         Winscript winScript = winVarObj.GetComponent<Winscript>();
         winScript.levelPins += 1;
-        Debug.LogWarning("pins on map = " + winScript.levelPins);
     }
 
     // Update is called once per frame
