@@ -12,7 +12,7 @@ public class Winscript : MonoBehaviour
     public int pins;
     private float time = 0;
     private bool timerActive = false;
-    public int levelPins;
+    public int levelPins = 0;
     public GameObject winUI; // Added declaration for winUI
     public GameObject timeText; // Renamed from 'Time' to 'timeText'
     public GameObject pinScore;
@@ -22,6 +22,7 @@ public class Winscript : MonoBehaviour
     public GameObject playerCam; // playercam reference to deactivate
     public GameObject player;
     public bool gameWon = false;
+    public Animator winUIanim;
     void Start()
     {
         pins = 0;
@@ -51,13 +52,8 @@ public class Winscript : MonoBehaviour
     {
         if (timerActive == true)
             time = time + Time.deltaTime;
-        if (pins >= levelPins)
-        {
-            win();
-            gameWon = true;
-        }
 
         //display score
-        pinScore.GetComponent<TextMeshProUGUI>().text = "Pins Hit: " + pins + "/10";
+        pinScore.GetComponent<TextMeshProUGUI>().text = "Pins Hit: " + pins + "/" + levelPins;
     }
 }

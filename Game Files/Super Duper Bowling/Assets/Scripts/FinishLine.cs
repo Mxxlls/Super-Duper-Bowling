@@ -22,6 +22,7 @@ public class FinishLine : MonoBehaviour
             if (winScript != null)
             {
                 winScript.win();
+                winScript.gameWon = true;
             }
         }
     }
