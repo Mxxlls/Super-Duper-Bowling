@@ -14,7 +14,7 @@ public class characterReset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < resetHeight && winScript == false)
+        if ((transform.position.y < resetHeight && winScript == false) && Winscript.GameIsPaused == false)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

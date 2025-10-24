@@ -21,8 +21,9 @@ public class Winscript : MonoBehaviour
     public GameObject winCam; // win cam reference to activate
     public GameObject playerCam; // playercam reference to deactivate
     public GameObject player;
+    public GameObject BestTime;
     public bool gameWon = false;
-    public Animator winUIanim;
+    public Animator winUiAnim;
     void Start()
     {
         pins = 0;
@@ -42,7 +43,6 @@ public class Winscript : MonoBehaviour
         playerCam.SetActive(false); //disables old camera (better fps??)
         player.GetComponentInChildren<MeshRenderer>().enabled = true;
         player.transform.localScale = new Vector3(1f, 1f, 1f);
-
         // timer
         TimerController.instance.EndTimer();
     }
