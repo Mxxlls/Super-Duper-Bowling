@@ -5148,6 +5148,52 @@ MonoBehaviour:
   timePlayingStr: 
   timeText: {fileID: 5118823645295976039}
   pinScore: {fileID: 638550290044182561}
+  BestTime: {fileID: 7632641728204728308}
+--- !u!1 &6739103221200064327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 477123125558425207}
+  - component: {fileID: 2575073607765882758}
+  m_Layer: 0
+  m_Name: playerSave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &477123125558425207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739103221200064327}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 266.2977, y: 56.27422, z: 144.18956}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 207501121460343210}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2575073607765882758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6739103221200064327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c95c407da88a417690b42f74d733e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestTime: Infinity
 --- !u!1 &6771683736204448148
 GameObject:
   m_ObjectHideFlags: 0
@@ -6205,6 +6251,7 @@ Transform:
   - {fileID: 7308880616470556660}
   - {fileID: 111405355488971283}
   - {fileID: 5107307997000084848}
+  - {fileID: 477123125558425207}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8542450021395537961
