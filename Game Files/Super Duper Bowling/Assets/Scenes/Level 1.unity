@@ -1517,6 +1517,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 110.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5107307997000084848, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1033.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107307997000084848, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -540.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107307997000084848, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 283.19
+      objectReference: {fileID: 0}
     - target: {fileID: 5208192315740977193, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1549,10 +1561,25 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 19119
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 9204219814440790981, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 315700782}
+=======
+    - target: {fileID: 8916393515508659620, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -660.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916393515508659620, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -528.1252
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916393515508659620, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 281.57794
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

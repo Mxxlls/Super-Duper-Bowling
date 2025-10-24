@@ -6205,6 +6205,10 @@ Transform:
   - {fileID: 7308880616470556660}
   - {fileID: 111405355488971283}
   - {fileID: 5107307997000084848}
+<<<<<<< Updated upstream:Game Files/Super Duper Bowling/Assets/Prefabs/Requirement blocks/1.1 Start Game Reqs.prefab
+=======
+  - {fileID: 8916393515508659620}
+>>>>>>> Stashed changes:Game Files/Super Duper Bowling/Assets/Prefabs/Start Blocks/1.1 Start Game Reqs.prefab
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8542450021395537961
