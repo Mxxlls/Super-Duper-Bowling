@@ -2,11 +2,15 @@ using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
+    public moveAdvanced moveAdvanced; // for FOV
+    public TextMeshProUGUI fovText;
+    public Slider FOVslider;
     Resolution[] resolutions;
     void Start()
     {
@@ -41,5 +45,11 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+    }
+
+    public void SetFOV()
+    {
+        moveAdvanced.FOV = FOVslider.value;
+        fovText.text = ("FOV: " + moveAdvanced.FOV);
     }
 }
