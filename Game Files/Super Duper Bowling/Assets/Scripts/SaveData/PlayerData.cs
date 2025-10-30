@@ -4,5 +4,5 @@ using UnityEngine;
 [Serializable]
 public class PlayerSaveData
 {
-    public float bestTime;
+    public float bestTime; //Legacy
 }
