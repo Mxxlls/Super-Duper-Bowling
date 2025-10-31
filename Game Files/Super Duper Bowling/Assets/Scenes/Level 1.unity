@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -683,6 +683,11 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 5771082204939394196, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
   m_PrefabInstance: {fileID: 1678419497}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &344068168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7779052336783355651, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+  m_PrefabInstance: {fileID: 1678419497}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &395173738
 Mesh:
   m_ObjectHideFlags: 0
@@ -863,7 +868,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -1126,7 +1131,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -1799,7 +1804,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -1877,7 +1882,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -2336,7 +2341,7 @@ PrefabInstance:
       objectReference: {fileID: 834904226}
     - target: {fileID: 2705368565172906106, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
       propertyPath: m_VersionIndex
-      value: 19080
+      value: 19086
       objectReference: {fileID: 0}
     - target: {fileID: 2971869237608340208, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2412,7 +2417,7 @@ PrefabInstance:
       objectReference: {fileID: 395173738}
     - target: {fileID: 4118260273755486888, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
       propertyPath: m_VersionIndex
-      value: 3240
+      value: 3246
       objectReference: {fileID: 0}
     - target: {fileID: 5425034253798115958, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
       propertyPath: m_Mesh
@@ -2452,7 +2457,7 @@ PrefabInstance:
       objectReference: {fileID: 1486319031}
     - target: {fileID: 6966246036178526541, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
       propertyPath: m_VersionIndex
-      value: 19355
+      value: 19361
       objectReference: {fileID: 0}
     - target: {fileID: 6974767279666880348, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2474,6 +2479,10 @@ PrefabInstance:
       propertyPath: playerCollider
       value: 
       objectReference: {fileID: 344068163}
+    - target: {fileID: 9181676193368067448, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
+      propertyPath: winScript
+      value: 
+      objectReference: {fileID: 2013162076}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4300294155512228457, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
@@ -3026,7 +3035,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -3787,7 +3796,7 @@ PrefabInstance:
       objectReference: {fileID: 1501199201}
     - target: {fileID: 120390504182790278, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_VersionIndex
-      value: 19747
+      value: 19750
       objectReference: {fileID: 0}
     - target: {fileID: 207501121460343210, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3920,7 +3929,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -3993,7 +4002,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -4086,7 +4095,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -4340,7 +4349,7 @@ PrefabInstance:
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 344068168}
     - target: {fileID: 6399277971678605435, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
       propertyPath: pinCollider
       value: 
@@ -4408,6 +4417,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 638550290044182561, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
   m_PrefabInstance: {fileID: 1678419497}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2013162076 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1374913452320381665, guid: 0050017aabe63934db8276eeaf24b4c0, type: 3}
+  m_PrefabInstance: {fileID: 1302742207}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ab300d34b6943f2a4a94ed9c49f8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &2045151432
 Mesh:
   m_ObjectHideFlags: 0

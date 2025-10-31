@@ -3744,6 +3744,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6148924364807616571, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      propertyPath: save
+      value: 
+      objectReference: {fileID: 1608428118}
     - target: {fileID: 7756790773546178044, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -3780,6 +3784,17 @@ PrefabInstance:
       addedObject: {fileID: 483407193}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+--- !u!114 &1608428118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3615218017733965007, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+  m_PrefabInstance: {fileID: 1608428117}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36867cc6ae2646b790f33413c1be2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1609550234
 Mesh:
   m_ObjectHideFlags: 0

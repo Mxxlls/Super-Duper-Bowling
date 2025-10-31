@@ -1,7 +1,9 @@
 using UnityEngine;
 
+
 public class FinishLine : MonoBehaviour
 {
+    public Winscript winScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,8 +19,7 @@ public class FinishLine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameObject winVarObj = GameObject.Find("Win Var");
-            Winscript winScript = winVarObj.GetComponent<Winscript>();
+            
             if (winScript != null)
             {
                 winScript.win();
