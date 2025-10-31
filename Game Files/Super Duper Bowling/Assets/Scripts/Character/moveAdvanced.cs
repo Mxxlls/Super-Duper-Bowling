@@ -13,11 +13,30 @@ public class moveAdvanced : MonoBehaviour
     public float slideBoost = 5f; // Additional speed boost when sliding
     public float slideAcceleration = 20f; // Acceleration force applied when sliding
     public float destroyHeight = -10;
+
+    public AudioSource Roll;
     public bool IsGrounded
     {
         get
         {
             return Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        }
+    }
+    public bool grounded = false;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("Ground") && !grounded)
+        {
+            grounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground") && grounded)
+        {
+            grounded = false;
         }
     }
     void Start()
@@ -48,7 +67,18 @@ public class moveAdvanced : MonoBehaviour
             playerCam.GetComponent<Camera>().fieldOfView = FOV + (forwardSpeed / 2);
         }
 
-
+        // Manage Roll Sounds
+        if (grounded == true)
+        {
+            Debug.Log("Hit ground");
+            if(!Roll.isPlaying)
+                Roll.Play();
+            Roll.pitch = 0.5f + (forwardSpeed / 50);
+        } else
+        {
+            if(Roll.isPlaying)
+                Roll.Stop();
+        }
 
         // Start sliding when key is pressed
         if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftShift))

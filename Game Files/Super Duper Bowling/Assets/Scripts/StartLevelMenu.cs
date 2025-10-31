@@ -20,6 +20,8 @@ public class StartLevelMenu : MonoBehaviour
     private Rigidbody playerRB;
     public GameObject timeCounter;
 
+    public AudioSource gameMusic;
+
     public bool doneAnim = false;
     public float animTime = 2.2f;
     public TimerController timerController; // Add this at the top with other public fields
@@ -34,9 +36,12 @@ public class StartLevelMenu : MonoBehaviour
         Cursor.visible = true;
         GameIsPaused = true;
         pauseMenuScript.enabled = false;
+        playerCam.enabled = false;
     }
     public void PlayGame()
     {
+        gameMusic.Play();
+
         if (!cutSceneCam)
         {
             GameIsPaused = false;

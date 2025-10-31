@@ -29,6 +29,7 @@ public class Winscript : MonoBehaviour
         pins = 0;
         timerActive = true;
         GameIsPaused = false;
+        winCam.SetActive(false);
     }
     public void win()
     {
@@ -40,7 +41,7 @@ public class Winscript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         winCam.SetActive(true); //switches camera
-        playerCam.SetActive(false); //disables old camera (better fps??)
+        playerCam.SetActive(false); //disables old camera
         player.GetComponentInChildren<MeshRenderer>().enabled = true;
         player.transform.localScale = new Vector3(1f, 1f, 1f);
         // timer

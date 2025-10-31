@@ -18,6 +18,8 @@ public class enemyPin : MonoBehaviour
     public Collider pinCollider;
     public Collider playerCollider;
 
+    public AudioSource pinHitSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,6 +54,7 @@ public class enemyPin : MonoBehaviour
             GameObject winVarObj = GameObject.Find("Win Var");
             Winscript winScript = winVarObj.GetComponent<Winscript>();
             winScript.pins += 1;
+            pinHitSound.Play();
             rb.constraints = RigidbodyConstraints.None;
 
             Debug.LogWarning("pin hit by player");
