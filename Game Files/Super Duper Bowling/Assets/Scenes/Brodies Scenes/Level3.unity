@@ -1428,7 +1428,7 @@ PrefabInstance:
       objectReference: {fileID: 1917099993}
     - target: {fileID: 120390504182790278, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_VersionIndex
-      value: 19828
+      value: 19834
       objectReference: {fileID: 0}
     - target: {fileID: 207501121460343210, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1570,10 +1570,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 315700782}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2575073607765882758, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6739103221200064327, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1237090967}
   m_SourcePrefab: {fileID: 100100000, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
 --- !u!43 &955381248
 Mesh:
@@ -2452,6 +2456,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70bc0e027b41c4a659a46c3c93b11fa0, type: 3}
+--- !u!1 &1237090965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6739103221200064327, guid: 4c8489291f21b3544835d89164e8cd58, type: 3}
+  m_PrefabInstance: {fileID: 786961895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1237090967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237090965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36867cc6ae2646b790f33413c1be2ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestTime: 0
 --- !u!43 &1287479483
 Mesh:
   m_ObjectHideFlags: 0
@@ -3142,6 +3164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bestTime: Infinity
+  bestTimeString: bestTime
+  bestTimeOne: 0
+  bestTimeTwo: 0
+  bestTimeThree: 0
+  bestTimeFour: 0
+  bestTimeFive: 0
+  bestTimeSix: 0
 --- !u!4 &1455760365
 Transform:
   m_ObjectHideFlags: 0

@@ -5,10 +5,10 @@ public class CharacterTurn : MonoBehaviour
     private Camera cam; // Reference to the camera component
     public Vector2 sensitivity; // Sensitivity for mouse movement
 
-    private float slideLock = 0f; // Variable to store the slide lock value
+    //private float slideLock = 0f; // Variable to store the slide lock value
     private bool sliding = false; // Track sliding state
     private float camAngle = 0;
-    private bool isPaused = false;
+    //private bool isPaused = false;
     
 
     // Removed OnEnable, OnDisable, PauseScript, and ResumeScript methods as GameManager is not defined
