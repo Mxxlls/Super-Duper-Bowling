@@ -15,6 +15,8 @@ public class TimerController : MonoBehaviour
     public GameObject timeText;
     public GameObject pinScore;
     public GameObject BestTime;
+    public PlayerPrefSave save;
+    public float bestTime;
     private void Awake()
     {
         instance = this;
@@ -46,10 +48,10 @@ public class TimerController : MonoBehaviour
         if (SaveManager.Instance != null)
         {
             // If no best time saved yet, bestTime will be PositiveInfinity
-            if (elapsedTime < SaveManager.Instance.bestTime)
+            if (elapsedTime < bestTime)
             {
-                SaveManager.Instance.bestTime = elapsedTime;
-                SaveManager.Instance.SaveGame();
+                bestTime = elapsedTime;
+                save.Save();
             }
 
             BestTime.GetComponent<TextMeshProUGUI>().text = FormatBestTimeUI(SaveManager.Instance.bestTime);
