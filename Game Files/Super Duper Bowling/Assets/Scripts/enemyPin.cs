@@ -15,9 +15,6 @@ public class enemyPin : MonoBehaviour
     private float goAmount = 0f;
     public Rigidbody rbp;
 
-    public Collider pinCollider;
-    public Collider playerCollider;
-
     public AudioSource pinHitSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

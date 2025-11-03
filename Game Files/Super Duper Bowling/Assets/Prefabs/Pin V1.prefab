@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae19df0bb02f27b418a92c0db4605aa6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.69
+      value: 230.77237
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae19df0bb02f27b418a92c0db4605aa6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.83
+      value: 4.2500005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae19df0bb02f27b418a92c0db4605aa6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13
+      value: 0.6827998
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae19df0bb02f27b418a92c0db4605aa6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -154,10 +154,10 @@ MonoBehaviour:
   Fly: 1
   Nyoom: 2.5
   Whoop: 3
-  player: {fileID: 5363316606292898698, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
-  rbp: {fileID: 9219827198538271270, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
-  pinCollider: {fileID: 3958182148559226497}
-  playerCollider: {fileID: 4668022421259082265}
+  player: {fileID: 0}
+  rbp: {fileID: 0}
+  pinCollider: {fileID: 0}
+  playerCollider: {fileID: 0}
   pinHitSound: {fileID: 768338912964381302}
 --- !u!54 &6054474072867244632
 Rigidbody:
