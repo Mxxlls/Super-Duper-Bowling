@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class jumpAdvanced : MonoBehaviour
 {
-    public float jumpForce = 10;
+    public float jumpForce = 12;
     public float climbSpeed = 10;
     private float coyoteTime;
     public float coyoteLimit;
@@ -51,7 +51,7 @@ public class jumpAdvanced : MonoBehaviour
             {
                 if (Vector3.Dot(currentVelocity, Vector3.up) < climbSpeed && Input.GetKey(KeyCode.Space))
                 {
-                    rb.AddForce(Vector3.up * jumpForce * 600 * Time.deltaTime);
+                    rb.AddForce(Vector3.up * jumpForce * 1000 * Time.deltaTime);
                 }
             }
     }

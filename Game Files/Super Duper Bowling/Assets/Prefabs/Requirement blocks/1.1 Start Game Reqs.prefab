@@ -2679,7 +2679,6 @@ GameObject:
   - component: {fileID: 880738400308748826}
   - component: {fileID: 5486969215737030006}
   - component: {fileID: 8207827278567002489}
-  - component: {fileID: 2697839045832068700}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -2748,28 +2747,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &2697839045832068700
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3480102000644225823}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 25b1f7b1ff3ea3a4ba9cb97d9e38df06, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 2
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3629094395780241803
 GameObject:
   m_ObjectHideFlags: 0
@@ -7292,7 +7269,7 @@ PrefabInstance:
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 2839901888619857781, guid: 01d9ea525c222744cbca771352c25086, type: 3}
       propertyPath: m_VersionIndex
-      value: 19864
+      value: 19870
       objectReference: {fileID: 0}
     - target: {fileID: 3002081954902072761, guid: 01d9ea525c222744cbca771352c25086, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

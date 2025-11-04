@@ -62,7 +62,7 @@ public class moveAdvanced : MonoBehaviour
 
         // Manage FOV Changes
 
-        if ((forwardSpeed / 2) < (FOV * 2))
+        if ((forwardSpeed / 2) < (FOV * 0.5))
         {
             playerCam.GetComponent<Camera>().fieldOfView = FOV + (forwardSpeed / 2);
         }
