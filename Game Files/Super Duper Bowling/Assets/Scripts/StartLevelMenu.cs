@@ -11,6 +11,8 @@ public class StartLevelMenu : MonoBehaviour
 
     public Camera cutSceneCam;
     private Camera playerCam;
+    public GameObject OtherCamGameObject;
+    public GameObject playerCamGameObject;
 
     public Animator ballRoll;
     public Animator cameraMove;
@@ -36,6 +38,7 @@ public class StartLevelMenu : MonoBehaviour
         Cursor.visible = true;
         GameIsPaused = true;
         pauseMenuScript.enabled = false;
+        playerCamGameObject.SetActive(false);
         playerCam.enabled = false;
     }
     public void PlayGame()
@@ -62,7 +65,7 @@ public class StartLevelMenu : MonoBehaviour
     {
         ballRoll.SetTrigger("Active");
         cameraMove.SetTrigger("Active");
-        playerCam.enabled = false;
+        OtherCamGameObject.SetActive(true);
         cutSceneCam.enabled = true;
     }
     public void LaunchPlayer()
@@ -70,7 +73,9 @@ public class StartLevelMenu : MonoBehaviour
         //initialise the swap
         player.SetActive(true);
         fakeBall.SetActive(false);
+        playerCamGameObject.SetActive(true);
         playerCam.enabled = true;
+        OtherCamGameObject.SetActive(false);
         cutSceneCam.enabled = false;
         GameIsPaused = false;
         PauseMenu.GameIsPaused = false;

@@ -16,10 +16,13 @@ public class Winscript : MonoBehaviour
     public GameObject winUI; // Added declaration for winUI
     public GameObject timeText; // Renamed from 'Time' to 'timeText'
     public GameObject pinScore;
+    public GameObject oldPinScore;
     public static bool GameIsPaused = false;
     public GameObject timeCounter;
+
     public GameObject winCam; // win cam reference to activate
     public GameObject playerCam; // playercam reference to deactivate
+
     public GameObject player;
     public GameObject BestTime;
     public bool gameWon = false;
@@ -37,6 +40,7 @@ public class Winscript : MonoBehaviour
         Debug.Log("Strike!"); // Temporary win log
         //Time.timeScale = 0; // Slow down all gameplay (not framerate)
         winUI.SetActive(true); //sets win menu active.
+        oldPinScore.SetActive(false);
         timeCounter.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -56,5 +60,6 @@ public class Winscript : MonoBehaviour
 
         //display score
         pinScore.GetComponent<TextMeshProUGUI>().text = "Pins Hit: " + pins + "/" + levelPins;
+        oldPinScore.GetComponent<TextMeshProUGUI>().text = "Pins Hit: " + pins + "/" + levelPins;
     }
 }
