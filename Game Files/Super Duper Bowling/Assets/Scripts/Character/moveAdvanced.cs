@@ -15,6 +15,7 @@ public class moveAdvanced : MonoBehaviour
     public float destroyHeight = -10;
 
     public AudioSource Roll;
+    public AudioSource Wind;
     public bool IsGrounded
     {
         get
@@ -73,11 +74,20 @@ public class moveAdvanced : MonoBehaviour
             Debug.Log("Hit ground");
             if(!Roll.isPlaying)
                 Roll.Play();
+
+            if (Wind.isPlaying)
+                Wind.Stop();
+
             Roll.pitch = 0.5f + (forwardSpeed / 50);
         } else
         {
             if(Roll.isPlaying)
                 Roll.Stop();
+
+            if (!Wind.isPlaying)
+                Wind.Play();
+
+            Wind.pitch = 1f + (forwardSpeed / 50);
         }
 
         // Start sliding when key is pressed

@@ -9,6 +9,8 @@ public class jumpAdvanced : MonoBehaviour
     private float coyoteTimer;
     private Rigidbody rb;
     private float jumpDelay = 0.1f;
+
+    public AudioSource jumpSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,6 +48,9 @@ public class jumpAdvanced : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 coyoteTimer = (coyoteLimit * 2);
                 jumpDelay = 0f;
+
+                jumpSound.Play();
+
             }
             else if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
             {
