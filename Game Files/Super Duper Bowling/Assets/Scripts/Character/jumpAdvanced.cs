@@ -9,6 +9,7 @@ public class jumpAdvanced : MonoBehaviour
     private float coyoteTimer;
     private Rigidbody rb;
     private float jumpDelay = 0.1f;
+    private bool isGrounded;
 
     public AudioSource jumpSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,7 +23,10 @@ public class jumpAdvanced : MonoBehaviour
     void Update()
     {
         Vector3 currentVelocity = rb.linearVelocity;
-        jumpDelay = jumpDelay + Time.deltaTime;
+        if (jumpDelay > 0f)
+        {
+            JumpDelay();
+        }
 
         if (coyoteTimer < coyoteLimit)
         {
@@ -30,12 +34,15 @@ public class jumpAdvanced : MonoBehaviour
         }
         // Cast a ray downwards to check if the player is grounded
         RaycastHit hit;
-        bool isGrounded = false;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.1f))
         {
             if (!hit.collider.CompareTag("Player"))
             {
                 isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
             }
         }
         if (isGrounded == true)
@@ -43,11 +50,11 @@ public class jumpAdvanced : MonoBehaviour
             coyoteTimer = 0;
         }
         if (Input.GetKey(KeyCode.Space))
-            if (Input.GetKeyDown(KeyCode.Space) && coyoteLimit > coyoteTimer && jumpDelay > 0.6f)
+            if (Input.GetKeyDown(KeyCode.Space) && coyoteLimit > coyoteTimer && jumpDelay == 0f)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 coyoteTimer = (coyoteLimit * 2);
-                jumpDelay = 0f;
+                jumpDelay = 0.6f;
 
                 jumpSound.Play();
 
@@ -60,4 +67,13 @@ public class jumpAdvanced : MonoBehaviour
                 }
             }
     }
+    void JumpDelay()
+    {
+        jumpDelay -= Time.deltaTime;
+        if (jumpDelay < 0f)
+        {
+            jumpDelay = 0f;
+        }
+    }
 }
+

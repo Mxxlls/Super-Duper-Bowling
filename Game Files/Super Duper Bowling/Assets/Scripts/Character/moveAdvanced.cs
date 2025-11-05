@@ -27,7 +27,7 @@ public class moveAdvanced : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.CompareTag("Ground") && !grounded)
+        if (collision.collider.CompareTag("Ground") && !grounded)
         {
             grounded = true;
         }
@@ -71,17 +71,17 @@ public class moveAdvanced : MonoBehaviour
         // Manage Roll Sounds
         if (grounded == true)
         {
-            Debug.Log("Hit ground");
-            if(!Roll.isPlaying)
+            if (!Roll.isPlaying)
                 Roll.Play();
 
             if (Wind.isPlaying)
                 Wind.Stop();
 
             Roll.pitch = 0.5f + (forwardSpeed / 50);
-        } else
+        }
+        else
         {
-            if(Roll.isPlaying)
+            if (Roll.isPlaying)
                 Roll.Stop();
 
             if (!Wind.isPlaying)
