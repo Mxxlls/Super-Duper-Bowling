@@ -23,12 +23,13 @@ public class PlayerPrefSave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void Save(float _bestTime)
     {
         // Save a player's score
         PlayerPrefs.SetFloat(bestTimeString, _bestTime);
+        PlayerPrefs.Save();
     }
 
     [ContextMenu("Reset")]

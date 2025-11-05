@@ -29,7 +29,8 @@ public class TimerController : MonoBehaviour
 
         // Initialize BestTime UI from SaveManager if available
         if (SaveManager.Instance != null)
-        {TryGetComponent(out PlayerPrefSave save);
+        {
+            TryGetComponent(out PlayerPrefSave save);
             BestTime.GetComponent<TextMeshProUGUI>().text = FormatBestTimeUI(save.bestTime);
         }
     }
@@ -44,19 +45,19 @@ public class TimerController : MonoBehaviour
     {
         timerGoing = false;
         timeText.GetComponent<TextMeshProUGUI>().text = timePlayingStr;
-            Debug.Log("We hit 1");
-            TryGetComponent(out PlayerPrefSave save);
-            // If no best time saved yet, bestTime will be PositiveInfinity
-            if (elapsedTime < save.bestTime)
-            {
-                Debug.Log("Save is called");
-                bestTime = elapsedTime;
-                save.Save(bestTime);
-                BestTime.GetComponent<TextMeshProUGUI>().text = FormatBestTimeUI(bestTime);
-            }
-            else
-            {
-                int idx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("We hit 1");
+        TryGetComponent(out PlayerPrefSave save);
+        // If no best time saved yet, bestTime will be PositiveInfinity
+        if (elapsedTime < save.bestTime || save.bestTime == 0f)
+        {
+            Debug.Log("Save is called");
+            bestTime = elapsedTime;
+            save.Save(bestTime);
+            BestTime.GetComponent<TextMeshProUGUI>().text = FormatBestTimeUI(bestTime);
+        }
+        else
+        {
+            int idx = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
             if (idx >= 1 && idx <= 6)
             {
                 string[] words = { "one", "two", "three", "four", "five", "six" };
@@ -64,13 +65,14 @@ public class TimerController : MonoBehaviour
                 Debug.Log(bestTimeString);
             }
 
-                bestTime = PlayerPrefs.GetFloat(bestTimeString);
-                BestTime.GetComponent<TextMeshProUGUI>().text = FormatBestTimeUI(bestTime);
-            }
+            bestTime = PlayerPrefs.GetFloat(bestTimeString);
+            PlayerPrefs.Save();
+            BestTime.GetComponent<TextMeshProUGUI>().text = FormatBestTimeUI(bestTime);
+        }
         // // If we have a SaveManager, compare and save best time
         // if (bestTime != null)
         // {
-            
+
 
         //     BestTime.GetComponent<TextMeshProUGUI>().text = FormatBestTimeUI(bestTime);
         // }
