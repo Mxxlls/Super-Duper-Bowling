@@ -62,10 +62,11 @@ public class moveAdvanced : MonoBehaviour
         float sideSpeed = Vector3.Dot(currentVelocity, transform.right);
 
         // Manage FOV Changes
+        float halfSpeed = forwardSpeed / 2;
 
-        if ((forwardSpeed / 2) < (FOV * 0.5))
+        if (halfSpeed < (FOV * 0.5) || halfSpeed < (FOV / 4))
         {
-            playerCam.GetComponent<Camera>().fieldOfView = FOV + (forwardSpeed / 2);
+            playerCam.GetComponent<Camera>().fieldOfView = FOV + halfSpeed;
         }
 
         // Manage Roll Sounds
