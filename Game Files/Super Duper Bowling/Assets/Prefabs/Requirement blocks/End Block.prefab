@@ -85,6 +85,7 @@ MonoBehaviour:
   winUI: {fileID: 0}
   timeText: {fileID: 0}
   pinScore: {fileID: 0}
+  oldPinScore: {fileID: 0}
   timeCounter: {fileID: 0}
   winCam: {fileID: 2964709662748707064}
   playerCam: {fileID: 0}
@@ -104,7 +105,6 @@ GameObject:
   - component: {fileID: 3381078993692509571}
   - component: {fileID: 3156340666013383711}
   - component: {fileID: 1545140921652740491}
-  - component: {fileID: 1448520279545221917}
   m_Layer: 0
   m_Name: winCam
   m_TagString: Untagged
@@ -230,19 +230,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &1448520279545221917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2964709662748707064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2add9ab463946e4b9577a9a7ca1fa8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &5173582833115760022
 GameObject:
   m_ObjectHideFlags: 0
