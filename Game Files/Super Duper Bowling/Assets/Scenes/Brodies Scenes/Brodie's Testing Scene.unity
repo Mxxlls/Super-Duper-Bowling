@@ -4091,29 +4091,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 239415946613901116, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
   m_PrefabInstance: {fileID: 2105488184}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &455633972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455633964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2bc4c063e4624129bc1659b9792a16b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWallRunning: 0
-  wallRunDuration: 4
-  upForce: 75
-  constantUpForce: 500
-  wallJumpForce: 30
-  rayDistance: 0
-  camAngle: 30
-  curCamAngle: 0
-  cam: {fileID: 1734900250}
-  FirstPersonController: {fileID: 239033769}
-  rb: {fileID: 239033769}
 --- !u!1001 &467700207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4731,11 +4708,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartLevelMenuUI: {fileID: 1093941326}
   cutSceneCam: {fileID: 0}
+  OtherCamGameObject: {fileID: 0}
+  playerCamGameObject: {fileID: 0}
   ballRoll: {fileID: 0}
   cameraMove: {fileID: 0}
   fakeBall: {fileID: 0}
   player: {fileID: 455633964}
   timeCounter: {fileID: 0}
+  gameMusic: {fileID: 0}
   doneAnim: 0
   animTime: 2.2
   timerController: {fileID: 0}
@@ -6847,6 +6827,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bestTime: Infinity
+  bestTimeString: bestTime
+  bestTimeOne: 0
+  bestTimeTwo: 0
+  bestTimeThree: 0
+  bestTimeFour: 0
+  bestTimeFive: 0
+  bestTimeSix: 0
 --- !u!4 &788402318
 Transform:
   m_ObjectHideFlags: 0
@@ -10520,6 +10507,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 18.795, y: 0, z: 0}
+--- !u!1 &1205945814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 995704711018228771, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
+  m_PrefabInstance: {fileID: 2105488184}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1212488209
 Mesh:
   m_ObjectHideFlags: 0
@@ -17989,11 +17981,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1734900250 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4057044121700695492, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
-  m_PrefabInstance: {fileID: 2105488184}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1746289412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20283,6 +20270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player V1
       objectReference: {fileID: 0}
+    - target: {fileID: 3105874352661689802, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
+      propertyPath: playerCam
+      value: 
+      objectReference: {fileID: 1205945814}
     - target: {fileID: 5363316606292898698, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
       propertyPath: m_LocalPosition.x
       value: 36.12393
@@ -20330,10 +20321,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 239415946613901116, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 455633972}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 763841b47ad714dc0bf9582e96658891, type: 3}
 --- !u!1001 &7674426561122858505
 PrefabInstance:

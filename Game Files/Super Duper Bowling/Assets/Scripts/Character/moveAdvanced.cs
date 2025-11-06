@@ -69,27 +69,29 @@ public class moveAdvanced : MonoBehaviour
         }
 
         // Manage Roll Sounds
-        if (grounded == true)
+        if (Roll != null && Wind != null)
         {
-            if (!Roll.isPlaying)
-                Roll.Play();
+            if (grounded == true)
+            {
+                if (!Roll.isPlaying)
+                    Roll.Play();
 
-            if (Wind.isPlaying)
-                Wind.Stop();
+                if (Wind.isPlaying)
+                    Wind.Stop();
 
-            Roll.pitch = 0.5f + (forwardSpeed / 50);
+                Roll.pitch = 0.5f + (forwardSpeed / 50);
+            }
+            else
+            {
+                if (Roll.isPlaying)
+                    Roll.Stop();
+
+                if (!Wind.isPlaying)
+                    Wind.Play();
+
+                Wind.pitch = 1f + (forwardSpeed / 50);
+            }
         }
-        else
-        {
-            if (Roll.isPlaying)
-                Roll.Stop();
-
-            if (!Wind.isPlaying)
-                Wind.Play();
-
-            Wind.pitch = 1f + (forwardSpeed / 50);
-        }
-
         // Start sliding when key is pressed
         if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -192,9 +194,7 @@ public class moveAdvanced : MonoBehaviour
                     }
                 }
             }
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-            { }
-            else
+            if (!(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
             {
                 if (IsGrounded && Mathf.Abs(sideSpeed) > 0.01f)
                 {
