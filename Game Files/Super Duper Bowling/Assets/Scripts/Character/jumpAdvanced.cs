@@ -34,15 +34,12 @@ public class jumpAdvanced : MonoBehaviour
         }
         // Cast a ray downwards to check if the player is grounded
         RaycastHit hit;
+        isGrounded = false;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.1f))
         {
             if (!hit.collider.CompareTag("Player"))
             {
                 isGrounded = true;
-            }
-            else
-            {
-                isGrounded = false;
             }
         }
         if (isGrounded == true)
@@ -50,14 +47,16 @@ public class jumpAdvanced : MonoBehaviour
             coyoteTimer = 0;
         }
         if (Input.GetKey(KeyCode.Space))
-            if (Input.GetKeyDown(KeyCode.Space) && coyoteLimit > coyoteTimer && jumpDelay == 0f)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                coyoteTimer = (coyoteLimit * 2);
-                jumpDelay = 0.6f;
+                if (isGrounded == true || coyoteTimer < coyoteLimit && jumpDelay == 0f)
+                {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                    coyoteTimer = (coyoteLimit * 2);
+                    jumpDelay = 0.6f;
+                    jumpSound.Play();
 
-                jumpSound.Play();
-
+                }
             }
             else if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
             {
