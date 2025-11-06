@@ -10,6 +10,7 @@ public class jumpAdvanced : MonoBehaviour
     private Rigidbody rb;
     private float jumpDelay = 0.1f;
     private bool isGrounded;
+    public bool grounded = false;
 
     public AudioSource jumpSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,10 +19,24 @@ public class jumpAdvanced : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         coyoteTimer = 0;
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground") && !grounded)
+        {
+            grounded = true;
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Ground") && grounded)
+        {
+            grounded = false;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+
         Vector3 currentVelocity = rb.linearVelocity;
         if (jumpDelay > 0f)
         {
@@ -49,7 +64,7 @@ public class jumpAdvanced : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (isGrounded == true || coyoteTimer < coyoteLimit && jumpDelay == 0f)
+                if (isGrounded == true || grounded == true || coyoteTimer < coyoteLimit && jumpDelay == 0f)
                 {
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                     coyoteTimer = (coyoteLimit * 2);

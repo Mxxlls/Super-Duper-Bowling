@@ -157,7 +157,7 @@ public class moveAdvanced : MonoBehaviour
             { }
             else
             {
-                if (IsGrounded && Mathf.Abs(forwardSpeed) > 0.01f)
+                if (grounded && Mathf.Abs(forwardSpeed) > 0.01f)
                 {
                     rb.AddForce(-transform.forward * (forwardSpeed * deceleration * Time.deltaTime));
                 }
@@ -197,7 +197,7 @@ public class moveAdvanced : MonoBehaviour
             }
             if (!(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
             {
-                if (IsGrounded && Mathf.Abs(sideSpeed) > 0.01f)
+                if (grounded && Mathf.Abs(sideSpeed) > 0.01f)
                 {
                     rb.AddForce(-transform.right * (sideSpeed * deceleration * Time.deltaTime));
                 }
