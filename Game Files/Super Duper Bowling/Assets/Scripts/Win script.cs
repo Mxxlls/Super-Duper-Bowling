@@ -44,8 +44,8 @@ public class Winscript : MonoBehaviour
         timeCounter.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        winCam.SetActive(true); //switches camera
         playerCam.SetActive(false); //disables old camera
+        winCam.SetActive(true); //switches camera
         player.GetComponentInChildren<MeshRenderer>().enabled = true;
         player.transform.localScale = new Vector3(1f, 1f, 1f);
         // timer

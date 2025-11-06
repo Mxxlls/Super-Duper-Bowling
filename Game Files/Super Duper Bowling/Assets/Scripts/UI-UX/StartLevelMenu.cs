@@ -43,8 +43,10 @@ public class StartLevelMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        gameMusic.Play();
-
+        if (gameMusic != null)
+        {
+            gameMusic.Play();
+        }
         if (!cutSceneCam)
         {
             GameIsPaused = false;
