@@ -32,12 +32,12 @@ public class Winscript : MonoBehaviour
         pins = 0;
         timerActive = true;
         GameIsPaused = false;
-        winCam.GetComponent<Camera>().enabled = false;
+        winCam.SetActive(false);
     }
     public void win()
     {
         playerCam.SetActive(false); //disables old camera
-        winCam.GetComponent<Camera>().enabled = true; //switches camera
+        winCam.SetActive(true); //switches camera
         GameIsPaused = true;
         Debug.Log("Strike!"); // Temporary win log
         //Time.timeScale = 0; // Slow down all gameplay (not framerate)
