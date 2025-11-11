@@ -27,6 +27,8 @@ public class Winscript : MonoBehaviour
     public GameObject BestTime;
     public bool gameWon = false;
     public Animator winUiAnim;
+
+    public AudioSource applause;
     void Start()
     {
         pins = 0;
@@ -50,6 +52,8 @@ public class Winscript : MonoBehaviour
         player.transform.localScale = new Vector3(1f, 1f, 1f);
         // timer
         TimerController.instance.EndTimer();
+
+        applause.Play();
     }
 
     // Update is called once per frame

@@ -14,6 +14,10 @@ public class moveAdvanced : MonoBehaviour
     public float slideAcceleration = 20f; // Acceleration force applied when sliding
     public float destroyHeight = -10;
 
+    // audio references
+    public Winscript winVar;
+    public AudioSource gameplayMusic;
+
     public AudioSource Roll;
     public AudioSource Wind;
     public bool IsGrounded
@@ -69,7 +73,7 @@ public class moveAdvanced : MonoBehaviour
             playerCam.GetComponent<Camera>().fieldOfView = FOV + halfSpeed;
         }
 
-        // Manage Roll Sounds
+        // Manage Sounds
         if (Roll != null && Wind != null)
         {
             if (grounded == true)
@@ -80,7 +84,7 @@ public class moveAdvanced : MonoBehaviour
                 if (Wind.isPlaying)
                     Wind.Stop();
 
-                Roll.pitch = 0.5f + (forwardSpeed / 50);
+                Roll.pitch = 0.8f + (forwardSpeed / 50);
             }
             else
             {
@@ -93,6 +97,13 @@ public class moveAdvanced : MonoBehaviour
                 Wind.pitch = 1f + (forwardSpeed / 50);
             }
         }
+        if (winVar.gameWon == true)
+        {
+            Wind.Stop();
+            gameplayMusic.Stop();
+        }
+
+
         // Start sliding when key is pressed
         if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftShift))
         {

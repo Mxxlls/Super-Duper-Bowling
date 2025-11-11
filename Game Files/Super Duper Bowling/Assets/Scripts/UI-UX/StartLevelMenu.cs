@@ -23,6 +23,7 @@ public class StartLevelMenu : MonoBehaviour
     public GameObject timeCounter;
 
     public AudioSource gameMusic;
+    public AudioSource menuMusic;
 
     public bool doneAnim = false;
     public float animTime = 2.2f;
@@ -46,6 +47,7 @@ public class StartLevelMenu : MonoBehaviour
         if (gameMusic != null)
         {
             gameMusic.Play();
+            menuMusic.Stop();
         }
         if (!cutSceneCam)
         {
