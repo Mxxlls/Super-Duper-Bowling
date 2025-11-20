@@ -27,17 +27,19 @@ public class Winscript : MonoBehaviour
     public GameObject BestTime;
     public bool gameWon = false;
     public Animator winUiAnim;
+
+    public AudioSource applause;
     void Start()
     {
         pins = 0;
         timerActive = true;
         GameIsPaused = false;
-        winCam.GetComponent<Camera>().enabled = false;
+        winCam.SetActive(false);
     }
     public void win()
     {
         playerCam.SetActive(false); //disables old camera
-        winCam.GetComponent<Camera>().enabled = true; //switches camera
+        winCam.SetActive(true); //switches camera
         GameIsPaused = true;
         Debug.Log("Strike!"); // Temporary win log
         //Time.timeScale = 0; // Slow down all gameplay (not framerate)
@@ -50,6 +52,8 @@ public class Winscript : MonoBehaviour
         player.transform.localScale = new Vector3(1f, 1f, 1f);
         // timer
         TimerController.instance.EndTimer();
+
+        applause.Play();
     }
 
     // Update is called once per frame

@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject crosshair;
+
+    public AudioSource wind;
     void Start()
     {
         // Time.timeScale = 1f; // Ensure the game starts unpaused
@@ -26,7 +28,13 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 Pause();
+                wind.Stop();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Restart();
         }
     }
     public void Resume()
