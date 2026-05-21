@@ -55,7 +55,7 @@ public class moveAdvanced : MonoBehaviour
         if (PauseMenu.GameIsPaused) return;
         if (StartLevelMenu.GameIsPaused) return;
         if (Winscript.GameIsPaused) return;
-        if (rb == null) return;
+        //if (rb == null) return;  IDK who checked for this but DAMN XD
 
         if (transform.position.y < destroyHeight)
         {
@@ -68,7 +68,7 @@ public class moveAdvanced : MonoBehaviour
         // Manage FOV Changes
         float halfSpeed = forwardSpeed / 2;
 
-        if (halfSpeed < (FOV * 0.5) || halfSpeed < (FOV / 4))
+        //if (halfSpeed < (FOV * 0.5) || halfSpeed < (FOV / 4))
         {
             playerCam.GetComponent<Camera>().fieldOfView = FOV + halfSpeed;
         }
@@ -105,7 +105,7 @@ public class moveAdvanced : MonoBehaviour
 
 
         // Start sliding when key is pressed
-        if (Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.LeftShift))
         {
             transform.localScale = new Vector3(1f, 0.5f, 1f);
             slideSpeed = Mathf.Max(forwardSpeed, sideSpeed) + slideBoost;
@@ -114,10 +114,11 @@ public class moveAdvanced : MonoBehaviour
             //Vector3 euler = cam.transform.localEulerAngles;
             //cam.transform.localRotation = Quaternion.Euler(0f, euler.y, euler.z);
         }
-
-        // Stop sliding when key is released
-        if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftShift))
+        else
         {
+            // Stop sliding when key is released
+            //if (Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftShift)) I did dumb... it is funny though!
+        
             sliding = false;
             slideSpeed = 0f;
             transform.localScale = new Vector3(1f, 1f, 1f);
@@ -164,9 +165,7 @@ public class moveAdvanced : MonoBehaviour
                     rb.AddForce(-transform.forward * acceleration * Time.deltaTime, ForceMode.VelocityChange);
                 }
             }
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
-            { }
-            else
+            if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
             {
                 if (grounded && Mathf.Abs(forwardSpeed) > 0.01f)
                 {
